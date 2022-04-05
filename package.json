@@ -4,7 +4,8 @@
   "description": "Typescript + React + Chrome Extension Template",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch --progress --config webpack.config.js"
+    "dev": "webpack --watch --progress --config bundler/webpack.dev.js",
+    "build": "webpack --watch --progress --config bundler/webpack.prod.js"
   },
   "author": "Hoon Wee",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "@types/chrome": "^0.0.180",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
@@ -21,6 +23,7 @@
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.71.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-merge": "^5.8.0"
   }
 }
