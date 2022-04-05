@@ -9,6 +9,7 @@
   "author": "Hoon Wee",
   "license": "ISC",
   "devDependencies": {
+    "@types/chrome": "^0.0.180",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "copy-webpack-plugin": "^10.2.4",
