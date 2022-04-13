@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@heroicons/react': ^1.0.6
   '@types/chrome': ^0.0.180
   '@types/react': ^17.0.43
   '@types/react-dom': ^17.0.14
@@ -10,6 +11,7 @@ specifiers:
   html-webpack-plugin: ^5.5.0
   react: ^18.0.0
   react-dom: ^18.0.0
+  react-draggable: ^4.4.4
   style-loader: ^3.3.1
   ts-loader: ^9.2.8
   typescript: ^4.6.3
@@ -20,6 +22,7 @@ specifiers:
   windicss-webpack-plugin: ^1.6.10
 
 devDependencies:
+  '@heroicons/react': 1.0.6_react@18.0.0
   '@types/chrome': 0.0.180
   '@types/react': 17.0.43
   '@types/react-dom': 17.0.14
@@ -29,6 +32,7 @@ devDependencies:
   html-webpack-plugin: 5.5.0_webpack@5.71.0
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
+  react-draggable: 4.4.4_react-dom@18.0.0+react@18.0.0
   style-loader: 3.3.1_webpack@5.71.0
   ts-loader: 9.2.8_typescript@4.6.3+webpack@5.71.0
   typescript: 4.6.3
@@ -47,6 +51,14 @@ packages:
   /@discoveryjs/json-ext/0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
+    dev: true
+
+  /@heroicons/react/1.0.6_react@18.0.0:
+    resolution: {integrity: sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.0.0
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -500,6 +512,11 @@ packages:
       is-plain-object: 2.0.4
       kind-of: 6.0.3
       shallow-clone: 3.0.1
+    dev: true
+
+  /clsx/1.1.1:
+    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+    engines: {node: '>=6'}
     dev: true
 
   /color-convert/2.0.1:
@@ -1399,6 +1416,14 @@ packages:
       renderkid: 3.0.0
     dev: true
 
+  /prop-types/15.8.1:
+    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+    dev: true
+
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
@@ -1422,6 +1447,22 @@ packages:
       loose-envify: 1.4.0
       react: 18.0.0
       scheduler: 0.21.0
+    dev: true
+
+  /react-draggable/4.4.4_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-6e0WdcNLwpBx/YIDpoyd2Xb04PB0elrDrulKUgdrIlwuYvxh5Ok9M+F8cljm8kPXXs43PmMzek9RrB1b7mLMqA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+      react-dom: '>= 16.3.0'
+    dependencies:
+      clsx: 1.1.1
+      prop-types: 15.8.1
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+    dev: true
+
+  /react-is/16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
   /react/18.0.0:
