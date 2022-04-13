@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const WindiCSSPlugin = require("windicss-webpack-plugin");
 
 const getHtmlPlugins = (chunks) => {
   return chunks.map(
@@ -51,6 +52,7 @@ module.exports = {
         },
       ],
     }),
+    new WindiCSSPlugin(),
     ...getHtmlPlugins(["popup", "options"]),
   ],
   resolve: {
