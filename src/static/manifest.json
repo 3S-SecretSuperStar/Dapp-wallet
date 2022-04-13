@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "React Extension",
-  "description": "Chrome Extension Template in React + Typescript",
-  "version": "1.0.0",
+  "name": "FlowTx",
+  "description": "FlowTx - UI friendly Solana Wallet",
+  "version": "0.1.0",
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "icons/FlowTxIcon16.png",
+    "48": "icons/FlowTxIcon48.png",
+    "128": "icons/FlowTxIcon128.png"
   },
   "action": {
     "default_popup": "popup.html",

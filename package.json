@@ -1,7 +1,7 @@
 {
-  "name": "ts-react-chext-template",
-  "version": "1.0.0",
-  "description": "Typescript + React + Chrome Extension Template",
+  "name": "flowtx-ext",
+  "version": "0.1.0",
+  "description": "FlowTx - UI friendly Solana Wallet",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --watch --progress --config bundler/webpack.dev.js",

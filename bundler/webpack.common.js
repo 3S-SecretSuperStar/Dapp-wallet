@@ -7,7 +7,7 @@ const getHtmlPlugins = (chunks) => {
   return chunks.map(
     (chunk) =>
       new HtmlPlugin({
-        title: "React Typescript Extension",
+        title: "FlowTx",
         filename: `${chunk}.html`,
         chunks: [chunk],
       })
