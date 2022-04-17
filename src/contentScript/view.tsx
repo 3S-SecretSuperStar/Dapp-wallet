@@ -1,5 +1,5 @@
 import React from "react";
-import { BG_GRADIENT_DARK, classNames } from "../utils/helper";
+import { classNames } from "../utils/helper";
 import { getFloatPosition, setFloatPosition } from "../utils/storage";
 import {
   LibraryIcon,
@@ -89,7 +89,7 @@ export const View = () => {
           </div>
           <div
             className={classNames(
-              BG_GRADIENT_DARK,
+              "bg-gradient-to-tr from-fuchsia-900 via-blue-900 to-teal-700",
               "rounded-2xl w-full h-auto mt-4 p-4"
             )}
             hidden={!expand}

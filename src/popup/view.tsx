@@ -1,5 +1,5 @@
 import React from "react";
-import { BG_GRADIENT_DARK, classNames } from "../utils/helper";
+import { classNames } from "../utils/helper";
 import { PopupHomePage } from "../components/popup/HomePage";
 import { PopupTopBar } from "../components/popup/TopBar";
 import "./popup.css";
@@ -10,7 +10,7 @@ export const PopupView = () => {
   return (
     <div
       className={classNames(
-        BG_GRADIENT_DARK,
+        "bg-gradient-to-tr from-fuchsia-900 via-blue-900 to-teal-700",
         "w-[360px] h-[480px] flex flex-col justify-between text-white overflow-y-auto"
       )}
       style={{ msOverflowStyle: "none" }}
