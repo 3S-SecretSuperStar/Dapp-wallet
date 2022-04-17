@@ -1,15 +1,13 @@
 import React from "react";
-import { classNames } from "../utils/helper";
+import { BG_GRADIENT_DARK, classNames } from "../utils/helper";
 import { getFloatPosition, setFloatPosition } from "../utils/storage";
 import {
-  CurrencyDollarIcon,
   LibraryIcon,
   MenuIcon,
   RefreshIcon,
   XIcon,
 } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
-import { GlassContainer } from "../components/GlassContainer";
 import Draggable from "react-draggable";
 import { NetworkOptions } from "../components/NetworkOptions";
 
@@ -91,15 +89,17 @@ export const View = () => {
           </div>
           <div
             className={classNames(
-              "bg-gradient-to-br from-indigo-900 via-teal-800 to-red-900",
+              BG_GRADIENT_DARK,
               "rounded-2xl w-full h-auto mt-4 p-4"
             )}
             hidden={!expand}
           >
-            <h2 className="text-white text-3xl font-bold text-center mb-4">
-              200.21 SOL
+            <h2 className="text-white text-xl font-normal text-center mb-4">
+              <span className="font-bold text-4xl">200.21</span> SOL
             </h2>
-            <NetworkOptions />
+            <div className="w-full flex justify-center">
+              <NetworkOptions />
+            </div>
           </div>
         </div>
       </Draggable>

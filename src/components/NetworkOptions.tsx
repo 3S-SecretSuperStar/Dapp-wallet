@@ -1,64 +1,61 @@
+import { CheckCircleIcon } from "@heroicons/react/outline";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { classNames } from "../utils/helper";
-import { GlassContainer } from "./GlassContainer";
-
-type SolanaNetwork = "main" | "test" | "dev" | "local";
+import { getSolanaNetwork, SolanaNetwork } from "../utils/storage";
 
 export const NetworkOptions = () => {
-  const [network, setNetwork] = useState<SolanaNetwork>("main");
-  return (
-    <div>
-      <h3 className="text-xl font-medium mb-1">Network</h3>
-      <div className="grid grid-cols-2 gap-2">
-        <GlassButton
-          text="Main"
-          selected={network === "main"}
-          onClick={() => setNetwork("main")}
-        />
-        <GlassButton
-          text="Test"
-          selected={network === "test"}
-          onClick={() => setNetwork("test")}
-        />
-        <GlassButton
-          text="Dev"
-          selected={network === "dev"}
-          onClick={() => setNetwork("dev")}
-        />
-        <GlassButton
-          text="Local"
-          selected={network === "local"}
-          onClick={() => setNetwork("local")}
-        />
-      </div>
-    </div>
-  );
-};
+  const [network, setNetwork] = useState<SolanaNetwork>("Mainnet");
+  const [showNetworkMenu, setShowNetworkMenu] = useState<boolean>(false);
 
-const GlassButton: React.FC<{
-  text: string;
-  selected?: boolean;
-  onClick: () => void;
-}> = ({ text, selected = false, onClick }) => {
+  useEffect(() => {
+    getSolanaNetwork().then(setNetwork);
+  }, []);
+
+  const NetworkOptionItem: React.FC<{ selectedNetwork: SolanaNetwork }> = ({
+    selectedNetwork,
+  }) => {
+    return (
+      <button
+        onClick={() => {
+          setNetwork(selectedNetwork);
+          setShowNetworkMenu(false);
+        }}
+        className={classNames(
+          network === selectedNetwork
+            ? "opacity-100 font-semibold"
+            : "opacity-80 font-normal",
+          "hover:opacity-100 transition-all"
+        )}
+      >
+        {selectedNetwork}
+      </button>
+    );
+  };
   return (
-    <button
-      onClick={onClick}
+    <div
+      onClick={() => {
+        !showNetworkMenu && setShowNetworkMenu(true);
+      }}
       className={classNames(
-        selected ? "opacity-100" : "opacity-50",
-        "hover:opacity-100 transition-opacity"
+        "border-2 border-white rounded-full h-10 px-2 cursor-pointer",
+        "flex items-center justify-around transition-all duration-500 ease-in-out",
+        showNetworkMenu ? "w-full" : "w-40"
       )}
     >
-      <GlassContainer padding={4}>
-        <p
-          className={classNames(
-            "text-center text-xl font-medium",
-            selected ? "text-gray-800" : "text-white"
-          )}
-        >
-          {text}
-        </p>
-      </GlassContainer>
-    </button>
+      {showNetworkMenu ? (
+        <>
+          <NetworkOptionItem selectedNetwork="Mainnet" />
+          <NetworkOptionItem selectedNetwork="Testnet" />
+          <NetworkOptionItem selectedNetwork="Devnet" />
+          <NetworkOptionItem selectedNetwork="Localhost" />
+        </>
+      ) : (
+        <>
+          <p className="text-base">{network}</p>
+          <CheckCircleIcon className="w-6 h-6 cursor-pointer" />
+        </>
+      )}
+    </div>
   );
 };
