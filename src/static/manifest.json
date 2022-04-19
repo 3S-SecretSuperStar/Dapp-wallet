@@ -12,6 +12,7 @@
     "default_popup": "popup.html",
     "default_title": "React Typescript Extension"
   },
+  "permissions": ["storage", "contextMenus", "alarms"],
   "options_page": "options.html",
   "background": {
     "service_worker": "background.js"

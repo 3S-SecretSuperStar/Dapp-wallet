@@ -4,22 +4,41 @@ import {
   ShareIcon,
 } from "@heroicons/react/outline";
 import { CheckCircleIcon } from "@heroicons/react/solid";
-import React from "react";
-import { classNames } from "../../utils/helper";
+import React, { useEffect, useState } from "react";
+import { abbrevPublicKey } from "../../../utils/account";
+import { classNames } from "../../../utils/helper";
+import { getUserAccounts, HDAccount } from "../../../utils/storage";
 
-export const PopupHomePage = () => {
+export const PopupMainPage = () => {
+  const [userAccount, setUserAccount] = useState<HDAccount>({
+    index: -1,
+    publicKey: "-",
+  });
+  useEffect(() => {
+    getUserAccounts().then((accounts) => {
+      accounts.length === 0
+        ? setUserAccount({ index: -1, publicKey: "-" })
+        : setUserAccount(accounts[0]);
+    });
+  }, []);
   return (
     <div className="flex flex-col items-center justify-start w-full pt-24 pb-12">
       <div
         className={classNames(
           "rounded-full border-white border-2",
-          "flex justify-center items-center h-12 w-12"
+          "flex justify-center items-center gap-4  h-12 w-2/3"
         )}
       >
         <img src="/solana-sol-logo.svg" alt="sol logo" className="w-6 h-6" />
+        <p className="text-white font-bold text-lg">
+          {abbrevPublicKey(userAccount.publicKey)}
+        </p>
       </div>
       <h1 className="text-3xl mt-6">
-        <span className="font-bold text-5xl mr-2">202.12</span> SOL
+        <span className="font-bold text-5xl mr-2">
+          {userAccount.publicKey === "-" ? "-" : "202.12"}
+        </span>{" "}
+        SOL
       </h1>
       <div className="mt-8 flex items-center justify-around w-2/3">
         <div className="flex flex-col items-center justify-center gap-2">

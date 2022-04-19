@@ -1,12 +1,15 @@
 import React from "react";
 import { classNames } from "../utils/helper";
-import { PopupHomePage } from "../components/popup/HomePage";
-import { PopupTopBar } from "../components/popup/TopBar";
+import { PopupMainPage } from "../components/popup/Main/Main.Page";
+import { PopupTopBar } from "../components/popup/common/TopBar";
 import "./popup.css";
+import { usePopupPage } from "../hooks/usePopupPage";
+import { PopupCreateWalletPage } from "../components/popup/CreateWallet/CreateWallet.Page";
 
 export type PopupNavOption = "home" | "history" | "exchange" | "settings";
 
 export const PopupView = () => {
+  const { currentPage } = usePopupPage();
   return (
     <div
       className={classNames(
@@ -17,7 +20,8 @@ export const PopupView = () => {
     >
       <PopupTopBar />
       <main className="h-full">
-        <PopupHomePage />
+        {currentPage === "main" && <PopupMainPage />}
+        {currentPage === "createWallet" && <PopupCreateWalletPage />}
       </main>
     </div>
   );

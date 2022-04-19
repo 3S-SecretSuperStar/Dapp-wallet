@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "../utils/helper";
+import { classNames } from "../../../utils/helper";
 
 export const GlassContainer: React.FC<{ padding?: number }> = ({
   children,

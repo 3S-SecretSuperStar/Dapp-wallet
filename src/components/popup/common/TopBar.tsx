@@ -1,12 +1,17 @@
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/outline";
+import { CheckCircleIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
-import { classNames, GLASSMORPHIC } from "../../utils/helper";
-import { getSolanaNetwork, SolanaNetwork } from "../../utils/storage";
+import { usePopupMenu } from "../../../hooks/usePopupMenu";
+import { usePopupPage } from "../../../hooks/usePopupPage";
+import { classNames, GLASSMORPHIC } from "../../../utils/helper";
+import { getSolanaNetwork, SolanaNetwork } from "../../../utils/storage";
+import { MenuPopup } from "./MenuPopup";
 
 export const PopupTopBar = () => {
   const [network, setNetwork] = useState<SolanaNetwork>("Mainnet");
   const [showNetworkMenu, setShowNetworkMenu] = useState<boolean>(false);
   const [connected, setConnected] = useState<boolean>(false);
+  const { setCurrentPage } = usePopupPage();
+  const { open: menuOpen, toggleOpen: toggleMenuOpen } = usePopupMenu();
 
   useEffect(() => {
     getSolanaNetwork().then(setNetwork);
@@ -43,9 +48,10 @@ export const PopupTopBar = () => {
       <img
         src="/icons/FlowTxIconSVG.svg"
         alt="flowtx logo"
+        onClick={() => setCurrentPage("main")}
         className={classNames(
           showNetworkMenu ? "absolute -left-10" : "relative left-0",
-          "transition-all duration-500 ease-in-out w-10 h-10"
+          "transition-all duration-500 ease-in-out w-10 h-10 cursor-pointer"
         )}
       />
       <div
@@ -80,9 +86,11 @@ export const PopupTopBar = () => {
         alt="user avatar"
         className={classNames(
           showNetworkMenu ? "absolute -right-10" : "relative right-0",
-          "transition-all border-2 rounded-full w-10 h-10 duration-500"
+          "transition-all border-2 rounded-full w-10 h-10 duration-500 cursor-pointer"
         )}
+        onClick={toggleMenuOpen}
       />
+      {menuOpen && <MenuPopup />}
     </header>
   );
 };
