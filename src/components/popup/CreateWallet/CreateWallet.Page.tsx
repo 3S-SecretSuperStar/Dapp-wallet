@@ -30,6 +30,7 @@ export const PopupCreateWalletPage = () => {
   }, []);
   return (
     <Container>
+      <h1>Create Wallet</h1>
       <h2>Seed Phrase</h2>
       <MnemonicDisplay>
         <div>
@@ -49,17 +50,16 @@ export const PopupCreateWalletPage = () => {
 };
 
 const Container = styled.div`
-  margin-top: 80px;
-  padding: 12px;
+  padding: 32px 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  h1 {
+    margin-bottom: 16px;
+  }
   h2 {
-    color: white;
     margin-bottom: 8px;
     text-align: left;
-    font-size: 18px;
-    font-weight: 500;
   }
 `;
 
@@ -79,7 +79,6 @@ const MnemonicDisplay = styled.div`
     p {
       font-size: 18px;
       font-weight: 300;
-      color: white;
       font-style: italic;
     }
   }
@@ -89,7 +88,6 @@ const MnemonicDisplay = styled.div`
     right: 4px;
     width: 20px;
     height: 20px;
-    color: white;
     opacity: 0.7;
     cursor: pointer;
     :hover,
@@ -105,7 +103,6 @@ const PasswordInput = styled.input`
   padding-bottom: 4px;
   font-size: 20px;
   font-weight: 300;
-  color: white;
   opacity: 0.7;
   :focus {
     outline: none;

@@ -1,8 +1,7 @@
 const path = require("path");
 const common = require("./webpack.common");
-const { merge } = require("webpack-merge");
-const WindiCSSPlugin = require("windicss-webpack-plugin");
 const HtmlPlugin = require("html-webpack-plugin");
+const { merge } = require("webpack-merge");
 
 const getHtmlPlugins = (chunks) => {
   return chunks.map(
@@ -30,17 +29,7 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [
-    new WindiCSSPlugin({
-      config: {
-        extract: {
-          include: ["**/*.{html,jsx,tsx}"],
-          exclude: ["node_modules", ".git", "dist"],
-        },
-      },
-    }),
-    ...getHtmlPlugins(["popup", "options"]),
-  ],
+  plugins: [...getHtmlPlugins(["popup", "options"])],
   optimization: {
     splitChunks: {
       chunks: (chunk) => chunk.name !== "contentScript",

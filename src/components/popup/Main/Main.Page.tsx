@@ -1,83 +1,25 @@
-import {
-  CurrencyDollarIcon,
-  RefreshIcon,
-  ShareIcon,
-} from "@heroicons/react/outline";
-import { CheckCircleIcon } from "@heroicons/react/solid";
-import React, { useEffect, useState } from "react";
-import { abbrevPublicKey } from "../../../utils/account";
-import { classNames } from "../../../utils/helper";
-import { getUserAccounts, HDAccount } from "../../../utils/storage";
+import React from "react";
+import styled from "styled-components";
+import { TxHistorySection } from "./TxHistory.Section";
+import { QuickMenuSection } from "./QuickMenu.Section";
+import { MainInfoSection } from "./MainInfo.Section";
 
 export const PopupMainPage = () => {
-  const [userAccount, setUserAccount] = useState<HDAccount>({
-    index: -1,
-    publicKey: "-",
-  });
-  useEffect(() => {
-    getUserAccounts().then((accounts) => {
-      accounts.length === 0
-        ? setUserAccount({ index: -1, publicKey: "-" })
-        : setUserAccount(accounts[0]);
-    });
-  }, []);
   return (
-    <div className="flex flex-col items-center justify-start w-full pt-24 pb-12">
-      <div
-        className={classNames(
-          "rounded-full border-white border-2",
-          "flex justify-center items-center gap-4  h-12 w-2/3"
-        )}
-      >
-        <img src="/solana-sol-logo.svg" alt="sol logo" className="w-6 h-6" />
-        <p className="text-white font-bold text-lg">
-          {abbrevPublicKey(userAccount.publicKey)}
-        </p>
-      </div>
-      <h1 className="text-3xl mt-6">
-        <span className="font-bold text-5xl mr-2">
-          {userAccount.publicKey === "-" ? "-" : "202.12"}
-        </span>{" "}
-        SOL
-      </h1>
-      <div className="mt-8 flex items-center justify-around w-2/3">
-        <div className="flex flex-col items-center justify-center gap-2">
-          <CurrencyDollarIcon className="w-8 h-8" />
-          <p className="text-center">Buy</p>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          <ShareIcon className="w-8 h-8" />
-          <p className="text-center">Send</p>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          <RefreshIcon className="w-8 h-8" />
-          <p className="text-center">Swap</p>
-        </div>
-      </div>
-      <div className="mt-12 w-5/6">
-        <h2 className="text-2xl font-semibold">Recent</h2>
-        <div className="mt-2 flex flex-col divide-y">
-          <HistoryItem method="Receive" />
-          <HistoryItem method="Receive" />
-          <HistoryItem method="Receive" />
-          <HistoryItem method="Receive" />
-          <HistoryItem method="Receive" />
-        </div>
-      </div>
-    </div>
+    <MainPageContainer>
+      <MainInfoSection />
+      <QuickMenuSection />
+      <TxHistorySection />
+    </MainPageContainer>
   );
 };
 
-const HistoryItem: React.FC<{ method: string }> = ({ method }) => {
-  return (
-    <div className="flex justify-start items-center py-2 gap-2">
-      <CheckCircleIcon className="w-8 h-8" />
-      <div>
-        <h3 className="text-base font-medium">{method}</h3>
-        <p>
-          From <span className="opacity-80">1dkajf1jfjkSDFj...</span>
-        </p>
-      </div>
-    </div>
-  );
-};
+const MainPageContainer = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  align-items: center;
+  justify-items: start;
+  padding: 52px 0px;
+`;

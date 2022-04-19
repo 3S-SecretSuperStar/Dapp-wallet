@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { usePopupMenu } from "../../../hooks/usePopupMenu";
 import { PopupPage, usePopupPage } from "../../../hooks/usePopupPage";
 
-export const MenuPopup = () => {
+export const PopupMenu = () => {
   const { setCurrentPage } = usePopupPage();
   const { setOpen } = usePopupMenu();
   const onMenuItemClick = (page: PopupPage) => {
@@ -46,18 +46,15 @@ export const MenuPopup = () => {
   );
 };
 
-const h2FontSize = "18px";
-const h3FontSize = "18px";
-const commonColor = "#333333";
+const commonColor = "#FFFFFF";
 
 const MenuContainer = styled.div`
   position: fixed;
   top: 64px;
   z-index: 50;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: darkseagreen;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 300px;
 `;
 
@@ -72,16 +69,10 @@ const MenuHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  h2 {
-    font-size: ${h2FontSize};
-    font-weight: 600;
-    color: ${commonColor};
-  }
   button {
-    border: 1px solid ${commonColor};
-    border-radius: 8px;
+    border: 2px solid ${commonColor};
+    border-radius: 12px;
     padding: 4px 8px;
-    color: ${commonColor};
   }
 `;
 
@@ -101,8 +92,5 @@ const MenuItem = styled.div`
     width: 24px;
     height: 24px;
     margin-right: 12px;
-  }
-  h3 {
-    font-size: ${h3FontSize};
   }
 `;
