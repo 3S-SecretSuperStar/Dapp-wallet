@@ -1,10 +1,10 @@
 import React from "react";
-import { PopupMainPage } from "../components/popup/Main/Main.Page";
-import { PopupTopBar } from "../components/popup/common/TopBar";
-import { usePopupPage } from "../hooks/usePopupPage";
-import { PopupCreateWalletPage } from "../components/popup/CreateWallet/CreateWallet.Page";
 import styled from "styled-components";
-import { GlobalStyle } from "../styles/globalStyles";
+import { PopupMainPage } from "@components/popup/Main/Main.Page";
+import { PopupTopBar } from "@components/popup/common/TopBar";
+import { usePopupPage } from "@hooks/usePopupPage";
+import { GlobalStyle } from "@styles/globalStyles";
+import { PopupIntroPage } from "@pages/Intro";
 
 export const PopupView = () => {
   const { currentPage } = usePopupPage();
@@ -12,10 +12,10 @@ export const PopupView = () => {
     <>
       <GlobalStyle />
       <ViewContainer>
-        <PopupTopBar />
+        {/* <PopupTopBar /> */}
         <Main>
+          {currentPage === "intro" && <PopupIntroPage />}
           {currentPage === "main" && <PopupMainPage />}
-          {currentPage === "createWallet" && <PopupCreateWalletPage />}
         </Main>
       </ViewContainer>
     </>
@@ -23,11 +23,10 @@ export const PopupView = () => {
 };
 
 const ViewContainer = styled.div`
-  width: 360px;
-  height: 480px;
+  width: 320px;
+  height: 578px;
 `;
 
 const Main = styled.main`
   width: 100%;
-  margin-top: 48px;
 `;

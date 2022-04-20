@@ -29,6 +29,7 @@ specifiers:
   style-loader: ^3.3.1
   styled-components: ^5
   ts-loader: ^9.2.8
+  tsconfig-paths-webpack-plugin: ^3.5.2
   typescript: ^4.6.3
   webpack: ^5.71.0
   webpack-cli: ^4.9.2
@@ -61,6 +62,7 @@ devDependencies:
   style-loader: 3.3.1_webpack@5.71.0
   styled-components: 5.3.5_react-dom@18.0.0+react@18.0.0
   ts-loader: 9.2.8_typescript@4.6.3+webpack@5.71.0
+  tsconfig-paths-webpack-plugin: 3.5.2
   typescript: 4.6.3
   webpack: 5.71.0_webpack-cli@4.9.2
   webpack-cli: 4.9.2_webpack@5.71.0
@@ -458,6 +460,10 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/json5/0.0.29:
+    resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
     dev: true
 
   /@types/lodash/4.14.182:
@@ -1985,6 +1991,13 @@ packages:
     resolution: {integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=}
     dev: true
 
+  /json5/1.0.1:
+    resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.6
+    dev: true
+
   /jsonparse/1.3.1:
     resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=}
     engines: {'0': node >= 0.2.0}
@@ -2104,6 +2117,10 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimist/1.2.6:
+    resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
   /motion/10.7.2_react-dom@18.0.0+react@18.0.0:
@@ -3122,6 +3139,23 @@ packages:
       semver: 7.3.5
       typescript: 4.6.3
       webpack: 5.71.0_webpack-cli@4.9.2
+    dev: true
+
+  /tsconfig-paths-webpack-plugin/3.5.2:
+    resolution: {integrity: sha512-EhnfjHbzm5IYI9YPNVIxx1moxMI4bpHD2e0zTXeDNQcwjjRaGepP7IhTHJkyDBG0CAOoxRfe7jCG630Ou+C6Pw==}
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.9.2
+      tsconfig-paths: 3.14.1
+    dev: true
+
+  /tsconfig-paths/3.14.1:
+    resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
+    dependencies:
+      '@types/json5': 0.0.29
+      json5: 1.0.1
+      minimist: 1.2.6
+      strip-bom: 3.0.0
     dev: true
 
   /tslib/2.3.1:

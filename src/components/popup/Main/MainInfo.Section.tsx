@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { abbrevPublicKey } from "../../../utils/account";
-import { getUserAccounts, HDAccount } from "../../../utils/storage";
+import { abbrevPublicKey } from "@utils/account";
+import { getUserAccounts, HDAccount } from "@utils/storage";
 
 export const MainInfoSection = () => {
   const [userAccount, setUserAccount] = useState<HDAccount>({

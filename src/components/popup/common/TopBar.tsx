@@ -1,10 +1,10 @@
-import { CheckCircleIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
-import { usePopupMenu } from "../../../hooks/usePopupMenu";
-import { usePopupPage } from "../../../hooks/usePopupPage";
-import { getSolanaNetwork, SolanaNetwork } from "../../../utils/storage";
-import { PopupMenu } from "./PopupMenu";
 import styled from "styled-components";
+import { CheckCircleIcon } from "@heroicons/react/outline";
+import { usePopupMenu } from "@hooks/usePopupMenu";
+import { usePopupPage } from "@hooks/usePopupPage";
+import { getSolanaNetwork, SolanaNetwork } from "@utils/storage";
+import { PopupMenu } from "./PopupMenu";
 
 export const PopupTopBar = () => {
   const [network, setNetwork] = useState<SolanaNetwork>("Mainnet");

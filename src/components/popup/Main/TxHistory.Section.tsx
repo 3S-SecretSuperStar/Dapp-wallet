@@ -68,6 +68,7 @@ const HistoryItem = styled.button`
     p {
       text-align: left;
       margin-top: 4px;
+      color: var(--primary);
       span {
         opacity: 0.8;
         font-style: italic;

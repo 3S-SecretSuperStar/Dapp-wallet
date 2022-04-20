@@ -6,8 +6,8 @@ import {
 } from "@heroicons/react/outline";
 import React from "react";
 import styled from "styled-components";
-import { usePopupMenu } from "../../../hooks/usePopupMenu";
-import { PopupPage, usePopupPage } from "../../../hooks/usePopupPage";
+import { usePopupMenu } from "@hooks/usePopupMenu";
+import { PopupPage, usePopupPage } from "@hooks/usePopupPage";
 
 export const PopupMenu = () => {
   const { setCurrentPage } = usePopupPage();
@@ -92,5 +92,6 @@ const MenuItem = styled.div`
     width: 24px;
     height: 24px;
     margin-right: 12px;
+    color: white;
   }
 `;

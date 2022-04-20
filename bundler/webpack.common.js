@@ -1,6 +1,7 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TsConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV === "development" ? "development" : "production",
@@ -38,6 +39,7 @@ module.exports = {
     fallback: {
       stream: require.resolve("stream-browserify"),
     },
+    plugins: [new TsConfigPathsPlugin()],
   },
   output: {
     filename: "[name].js",

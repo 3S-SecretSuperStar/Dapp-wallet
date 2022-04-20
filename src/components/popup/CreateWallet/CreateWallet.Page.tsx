@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import * as Bip39 from "bip39";
-import { deriveNewAccountFromMnemonic } from "../../../utils/account";
-import { setUserAccounts, setUserMnemonic } from "../../../utils/storage";
-import { usePopupPage } from "../../../hooks/usePopupPage";
+import { deriveNewAccountFromMnemonic } from "@utils/account";
+import { setUserAccounts, setUserMnemonic } from "@utils/storage";
+import { usePopupPage } from "@hooks/usePopupPage";
 import { RefreshIcon } from "@heroicons/react/outline";
 
 export const PopupCreateWalletPage = () => {
