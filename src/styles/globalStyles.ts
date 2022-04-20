@@ -21,4 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .gradient-text {
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
 `;

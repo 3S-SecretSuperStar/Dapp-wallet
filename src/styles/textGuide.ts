@@ -2,16 +2,16 @@ import { css } from "styled-components";
 
 export const TextGuide = css`
   h1 {
-    font-weight: 900;
-    font-size: 32px;
+    font-weight: 800;
+    font-size: 25px;
   }
   h2 {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 20px;
   }
   h3 {
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 16px;
   }
   h4 {
     font-weight: 400;

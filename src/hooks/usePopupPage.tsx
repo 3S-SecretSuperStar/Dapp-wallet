@@ -2,6 +2,8 @@ import create from "zustand";
 
 export type PopupPage =
   | "intro"
+  | "welcome"
+  | "setup"
   | "main"
   | "createWallet"
   | "importWallet"

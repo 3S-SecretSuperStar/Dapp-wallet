@@ -16,7 +16,7 @@ export const IntroManagePage = () => {
       </div>
       <h2>Pay Friends</h2>
       <p>{anyword}</p>
-      <IntroNextButton onClick={() => setCurrentPage("main")}>
+      <IntroNextButton onClick={() => setCurrentPage("welcome")}>
         <ArrowRightIcon />
       </IntroNextButton>
     </Container>

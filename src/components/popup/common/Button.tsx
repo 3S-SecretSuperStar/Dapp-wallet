@@ -1,0 +1,39 @@
+import { ArrowRightIcon } from "@heroicons/react/outline";
+import React, { ButtonHTMLAttributes } from "react";
+import styled from "styled-components";
+
+export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  children,
+  ...props
+}) => {
+  return (
+    <ButtonStyle {...props}>
+      <p>{children}</p>
+      <ArrowRightIcon />
+    </ButtonStyle>
+  );
+};
+
+const ButtonStyle = styled.button`
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary);
+  border-radius: 16px;
+  height: 40px;
+  min-width: 120px;
+  * {
+    color: var(--bright);
+  }
+  p {
+    font-weight: 700;
+    font-size: 12px;
+  }
+  svg {
+    width: 12px;
+    height: 12px;
+    padding: 0px 0px;
+  }
+`;

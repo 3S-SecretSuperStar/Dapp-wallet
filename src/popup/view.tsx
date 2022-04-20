@@ -5,6 +5,8 @@ import { PopupTopBar } from "@components/popup/common/TopBar";
 import { usePopupPage } from "@hooks/usePopupPage";
 import { GlobalStyle } from "@styles/globalStyles";
 import { PopupIntroPage } from "@pages/Intro";
+import { PopupWelcomePage } from "@pages/Welcome";
+import { PopupSetupPage } from "@pages/Setup";
 
 export const PopupView = () => {
   const { currentPage } = usePopupPage();
@@ -12,10 +14,11 @@ export const PopupView = () => {
     <>
       <GlobalStyle />
       <ViewContainer>
-        {/* <PopupTopBar /> */}
         <Main>
           {currentPage === "intro" && <PopupIntroPage />}
           {currentPage === "main" && <PopupMainPage />}
+          {currentPage === "welcome" && <PopupWelcomePage />}
+          {currentPage === "setup" && <PopupSetupPage />}
         </Main>
       </ViewContainer>
     </>
@@ -23,8 +26,8 @@ export const PopupView = () => {
 };
 
 const ViewContainer = styled.div`
-  width: 320px;
-  height: 578px;
+  width: 268px;
+  height: 580px;
 `;
 
 const Main = styled.main`
