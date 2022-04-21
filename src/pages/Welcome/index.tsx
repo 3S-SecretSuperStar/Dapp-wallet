@@ -1,36 +1,35 @@
-import { Button } from "@components/popup/common/Button";
-import { usePopupPage } from "@hooks/usePopupPage";
 import React from "react";
 import styled from "styled-components";
+import { NextButton } from "@components/popup/common/Button";
+import { TitleSection } from "@components/popup/common/TitleSection";
+import { usePopupPage } from "@hooks/usePopupPage";
+import { BRAND } from "@utils/contants";
+import { ColumnFlexContainer } from "@components/popup/common/ColumnFlexContainer";
+import { GradientH3 } from "@components/popup/common/GradientText";
 
 export const PopupWelcomePage = () => {
   const { setCurrentPage } = usePopupPage();
   return (
     <Container>
       <WelcomeImage src="/images/Welcome/welcome.svg" alt="welcome image" />
-      <WelcomeTitle>
+      <WelcomeTitleSection>
         <img src="/images/Welcome/logo.svg" alt="Pengwyn Logo" />
         <h1>
           Sign in to
           <br />
-          Pengwyn
+          {BRAND}
         </h1>
-        <h3 className="gradient-text">Welcome back, you've been missed!</h3>
-      </WelcomeTitle>
-      <Button onClick={() => setCurrentPage("setup")}>Get Started</Button>
+        <GradientH3>Welcome back, you've been missed!</GradientH3>
+      </WelcomeTitleSection>
+      <NextButton onClick={() => setCurrentPage("setup")}>
+        Get Started
+      </NextButton>
     </Container>
   );
 };
 
-const Container = styled.div`
-  position: absolute;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  height: 100%;
+const Container = styled(ColumnFlexContainer)`
   background-color: var(--dark);
-  padding: 40px 16px;
 `;
 
 const WelcomeImage = styled.img`
@@ -39,23 +38,14 @@ const WelcomeImage = styled.img`
   object-fit: contain;
 `;
 
-const WelcomeTitle = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
-  gap: 16px;
+const WelcomeTitleSection = styled(TitleSection)`
   margin-bottom: 32px;
-  width: 100%;
   img {
     width: 32px;
     height: 32px;
+    object-fit: contain;
   }
   h1 {
     color: var(--bright);
-    text-align: left;
-  }
-  h3 {
-    text-align: left;
   }
 `;

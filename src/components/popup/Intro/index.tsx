@@ -1,32 +1,26 @@
 import styled from "styled-components";
+import { ColumnFlexContainer } from "../common/ColumnFlexContainer";
 
-export const IntroContainer = styled.div`
-  position: absolute;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
+export const IntroContainer = styled(ColumnFlexContainer)`
   div {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     width: 100%;
-    height: 320px;
+    height: 280px;
     img {
-      width: 100%;
+      width: 80%;
       height: 300px;
-      object-fit: cover;
+      object-fit: contain;
     }
     button {
       position: absolute;
       top: 20px;
       right: 20px;
-      font-weight: 700;
-      font-size: 18px;
+      font-weight: 600;
+      font-size: 16px;
     }
   }
   h2 {
@@ -43,15 +37,16 @@ export const IntroContainer = styled.div`
 
 export const IntroNextButton = styled.button`
   background-color: var(--black);
-  width: 64px;
-  height: 64px;
-  margin-top: 52px;
-  border-radius: 20px;
+  width: 46px;
+  height: 46px;
+  margin-top: 32px;
+  border-radius: 14px;
   * {
     color: var(--bright);
   }
   svg {
-    width: 21px;
-    height: 21px;
+    width: 12px;
+    height: 12px;
+    stroke-width: 4px;
   }
 `;

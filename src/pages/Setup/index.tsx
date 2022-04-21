@@ -1,14 +1,15 @@
+import { useSetupPage } from "@hooks/useSetupPage";
 import React from "react";
-import styled from "styled-components";
+import { SetupFirstPage } from "./SetupFirst.Page";
 
 export const PopupSetupPage = () => {
+  const { currentPage } = useSetupPage();
   return (
-    <Container>
-      <h1>Hello!</h1>
-    </Container>
+    <>
+      {currentPage === "first" && <SetupFirstPage />}
+      {/* {currentPage === "importSeed" && <SetupImportSeedPage />}
+      {currentPage === "createSeed" && <SetupCreateSeedPage />}
+      {currentPage === "createPassword" && <SetupCreatePasswordPage />} */}
+    </>
   );
 };
-
-const Container = styled.div`
-  position: absolute;
-`;

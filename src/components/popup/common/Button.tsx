@@ -6,11 +6,15 @@ export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   ...props
 }) => {
+  return <ButtonStyle {...props}>{children}</ButtonStyle>;
+};
+
+export const NextButton: typeof Button = ({ children, ...props }) => {
   return (
-    <ButtonStyle {...props}>
+    <Button {...props}>
       <p>{children}</p>
       <ArrowRightIcon />
-    </ButtonStyle>
+    </Button>
   );
 };
 
@@ -35,5 +39,6 @@ const ButtonStyle = styled.button`
     width: 12px;
     height: 12px;
     padding: 0px 0px;
+    stroke-width: 4px;
   }
 `;

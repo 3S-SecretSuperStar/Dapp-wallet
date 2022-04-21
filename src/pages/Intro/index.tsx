@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { IntroCompassPage } from "./IntroCompass.Page";
 import { IntroPayFriendsPage } from "./IntroPayFriends.Page";
 import { IntroManagePage } from "./IntroManage.Page";

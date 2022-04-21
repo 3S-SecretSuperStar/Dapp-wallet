@@ -21,13 +21,14 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .gradient-text {
-    background: var(--primary-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+  input {
+    border: 2px solid #F6F6F6;
+    border-radius: 16px;
+    height: 40px;
+    :focus {
+      background: linear-gradient(var(--bright), var(--bright)) padding-box, var(--primary-gradient) border-box;
+      border-radius: 16px;
+      border: 2px solid transparent;
+    }
   }
 `;

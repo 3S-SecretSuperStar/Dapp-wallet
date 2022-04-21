@@ -6,7 +6,7 @@ export const TextGuide = css`
     font-size: 25px;
   }
   h2 {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 20px;
   }
   h3 {
