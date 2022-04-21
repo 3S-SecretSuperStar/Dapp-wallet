@@ -1,4 +1,4 @@
-import { IntroContainer, IntroNextButton } from "@components/popup/Intro";
+import { IntroContainer, IntroNextButton } from "@components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import { usePopupPage } from "@hooks/usePopupPage";
 import React from "react";

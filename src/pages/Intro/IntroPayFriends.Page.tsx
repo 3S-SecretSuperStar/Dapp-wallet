@@ -1,9 +1,9 @@
-import { IntroContainer, IntroNextButton } from "@components/popup/Intro";
+import React from "react";
+import styled from "styled-components";
+import { IntroContainer, IntroNextButton } from "@components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import { useIntroPage } from "@hooks/useIntroPage";
 import { usePopupPage } from "@hooks/usePopupPage";
-import React from "react";
-import styled from "styled-components";
 import { anyword } from "./IntroManage.Page";
 
 export const IntroPayFriendsPage = () => {

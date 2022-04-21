@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { SetupPageContainer } from "@components/popup/Setup/SetupPageContainer";
-import { SetupPageTopButtonBar } from "@components/popup/Setup/SetupPageTopButtonBar";
-import { SetupPageTitleSection } from "@components/popup/Setup/SetupPageTitleSection";
-import { NextButton } from "@components/popup/common/Button";
-import { GradientH3 } from "@components/popup/common/GradientText";
 import { useSetupPage } from "@hooks/useSetupPage";
 import { useSetupInfo } from "@hooks/useSetupInfo";
 import { BRAND } from "@utils/contants";
-import { PasswordInput } from "@components/popup/common/PasswordInput";
-import { SetupFormSection } from "@components/popup/Setup/SetupFormSection";
+import { PasswordInput } from "@components/common/PasswordInput";
+import { NextButton, GradientH3 } from "@components/common";
+import {
+  SetupFormSection,
+  SetupPageContainer,
+  SetupPageTitleSection,
+  SetupPageTopButtonBar,
+} from "@components/Setup";
 
 export const SetupPasswordPage = () => {
   const { setCurrentPage } = useSetupPage();

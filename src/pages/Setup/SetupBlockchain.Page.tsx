@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { SetupPageContainer } from "@components/popup/Setup/SetupPageContainer";
-import { SetupPageTopButtonBar } from "@components/popup/Setup/SetupPageTopButtonBar";
-import { SetupPageTitleSection } from "@components/popup/Setup/SetupPageTitleSection";
-import { Button, NextButton } from "@components/popup/common/Button";
-import { GradientH3 } from "@components/popup/common/GradientText";
 import { useSetupPage } from "@hooks/useSetupPage";
 import { Blockchain, useSetupInfo } from "@hooks/useSetupInfo";
-import { SetupFormSection } from "@components/popup/Setup/SetupFormSection";
+import {
+  SetupFormSection,
+  SetupPageContainer,
+  SetupPageTitleSection,
+  SetupPageTopButtonBar,
+} from "@components/Setup";
+import { GradientH3 } from "@components/common/GradientText";
+import { Button, NextButton } from "@components/common";
 
 export const SetupBlockchainPage = () => {
   const [blockchain, setBlockchain] = useState<Blockchain>("eth");

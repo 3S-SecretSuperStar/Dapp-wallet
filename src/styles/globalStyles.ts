@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     }
     -ms-overflow-style: none;
     scrollbar-width: none;
+    width: 320px;
+    height: 580px;
   }
   input, textarea {
     border: 2px solid #F6F6F6;

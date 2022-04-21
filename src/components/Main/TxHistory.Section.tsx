@@ -1,7 +1,7 @@
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import React from "react";
 import styled from "styled-components";
-import { abbrevPublicKey } from "../../../utils/account";
+import { abbrevPublicKey } from "@utils/account";
 
 export const TxHistorySection = () => {
   return (

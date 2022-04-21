@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { SetupPageContainer } from "@components/popup/Setup/SetupPageContainer";
-import { SetupPageTopButtonBar } from "@components/popup/Setup/SetupPageTopButtonBar";
-import { SetupPageTitleSection } from "@components/popup/Setup/SetupPageTitleSection";
-import { NextButton } from "@components/popup/common/Button";
-import { GradientH3 } from "@components/popup/common/GradientText";
+import { NextButton, GradientH3 } from "@components/common";
 import { useSetupPage } from "@hooks/useSetupPage";
 import { useSetupInfo } from "@hooks/useSetupInfo";
-import { SetupSeedWordSection } from "@components/popup/Setup/SetupSeedWordSection";
+import {
+  SetupPageContainer,
+  SetupPageTitleSection,
+  SetupPageTopButtonBar,
+  SetupSeedWordSection,
+} from "@components/Setup";
 
 export const SetupImportPage = () => {
   const [seedWords, setSeedWords] = useState<string>("");

@@ -1,10 +1,10 @@
 import React from "react";
-import { useSetupPage } from "@hooks/useSetupPage";
 import { SetupFirstPage } from "./SetupFirst.Page";
 import { SetupPasswordPage } from "./SetupPassword.Page";
 import { SetupBlockchainPage } from "./SetupBlockchain.Page";
 import { SetupImportPage } from "./SetupImport.Page";
 import { SetupCreatePage } from "./SetupCreate.Page";
+import { useSetupPage } from "@hooks/useSetupPage";
 
 export const PopupSetupPage = () => {
   const { currentPage } = useSetupPage();
