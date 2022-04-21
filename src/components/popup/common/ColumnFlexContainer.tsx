@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ColumnFlexContainer = styled.div`
   position: absolute;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;

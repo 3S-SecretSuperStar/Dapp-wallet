@@ -4,10 +4,19 @@ import { SetupPageContainer } from "@components/popup/Setup/SetupPageContainer";
 import { SetupPageTopButtonBar } from "@components/popup/Setup/SetupPageTopButtonBar";
 import { SetupPageTitleSection } from "@components/popup/Setup/SetupPageTitleSection";
 import { Button } from "@components/popup/common/Button";
-import { DownloadIcon, PlusIcon } from "@heroicons/react/outline";
 import { GradientH3 } from "@components/popup/common/GradientText";
+import { useSetupPage } from "@hooks/useSetupPage";
+import { useSetupInfo } from "@hooks/useSetupInfo";
 
 export const SetupFirstPage = () => {
+  const { setCurrentPage } = useSetupPage();
+  const { setupInfo, setSetupInfo } = useSetupInfo();
+
+  const onClickNext = (setupType: "import" | "create") => {
+    setSetupInfo({ ...setupInfo, setupType });
+    setCurrentPage("blockchain");
+  };
+
   return (
     <SetupPageContainer>
       <SetupPageTopButtonBar>
@@ -23,10 +32,10 @@ export const SetupFirstPage = () => {
         <GradientH3>Import existing wallet, or create a new one!</GradientH3>
       </SetupPageTitleSection>
       <ButtonContainer>
-        <ImportWalletButton>
+        <ImportWalletButton onClick={() => onClickNext("import")}>
           <p>Import Wallet</p>
         </ImportWalletButton>
-        <CreateNewWalletButton>
+        <CreateNewWalletButton onClick={() => onClickNext("create")}>
           <p>Create New Wallet</p>
         </CreateNewWalletButton>
       </ButtonContainer>

@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  input {
+  input, textarea {
     border: 2px solid #F6F6F6;
     border-radius: 16px;
     height: 40px;

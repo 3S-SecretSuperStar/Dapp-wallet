@@ -6,7 +6,6 @@ export const TitleSection = styled.section`
   align-items: flex-start;
   justify-content: start;
   gap: 16px;
-  width: 100%;
   h1 {
     text-align: left;
   }

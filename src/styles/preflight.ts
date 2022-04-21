@@ -11,7 +11,8 @@ export const UIPreflight = css`
       outline: none;
     }
   }
-  input {
+  input,
+  textarea {
     background-color: transparent;
     border: none;
     :hover,
@@ -19,5 +20,8 @@ export const UIPreflight = css`
     :active {
       outline: none;
     }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 `;

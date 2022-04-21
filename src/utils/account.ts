@@ -9,7 +9,7 @@ export const deriveNewAccountFromMnemonic = (
   password?: string
 ): HDAccount => {
   const seed = Bip39.mnemonicToSeedSync(mnemonic, password);
-  const path = `m/44'/501'/${index}'/0'`;
+  const path = `m/44'/501'/0'/${index}'`;
   const keypair = Keypair.fromSeed(derivePath(path, seed.toString("hex")).key);
   return { index, publicKey: keypair.publicKey.toBase58() };
 };

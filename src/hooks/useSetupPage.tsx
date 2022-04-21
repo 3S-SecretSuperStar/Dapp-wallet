@@ -2,9 +2,10 @@ import create from "zustand";
 
 export type SetupPage =
   | "first"
-  | "createSeed"
-  | "createPassword"
-  | "importSeed";
+  | "blockchain"
+  | "import"
+  | "create"
+  | "password";
 
 interface UseSetupPageProps {
   currentPage: SetupPage;

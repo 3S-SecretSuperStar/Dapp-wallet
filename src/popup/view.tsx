@@ -27,7 +27,7 @@ export const PopupView = () => {
 };
 
 const ViewContainer = styled.div`
-  width: 268px;
+  width: 320px;
   height: 580px;
 `;
 
