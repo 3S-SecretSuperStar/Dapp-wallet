@@ -24,13 +24,13 @@ export const GlobalStyle = createGlobalStyle`
     height: 580px;
   }
   input, textarea {
-    border: 2px solid #F6F6F6;
-    border-radius: 16px;
     height: 40px;
+    background: linear-gradient(var(--bright), var(--bright)) padding-box, var(--primary-gradient) border-box;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    opacity: 0.2;
     :focus {
-      background: linear-gradient(var(--bright), var(--bright)) padding-box, var(--primary-gradient) border-box;
-      border-radius: 16px;
-      border: 2px solid transparent;
+      opacity: 1;
     }
   }
 `;

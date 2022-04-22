@@ -1,7 +1,7 @@
 {
-  "name": "flowtx-ext",
+  "name": "Pengwyn",
   "version": "0.1.0",
-  "description": "FlowTx - UI friendly Solana Wallet",
+  "description": "Pengwyn - Your only pathfinder in Web3 world.",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build",

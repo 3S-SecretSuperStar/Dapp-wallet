@@ -12,12 +12,10 @@ import { GradientH3 } from "@components/common/GradientText";
 import { Button, NextButton } from "@components/common";
 
 export const SetupBlockchainPage = () => {
-  const [blockchain, setBlockchain] = useState<Blockchain>("eth");
   const { setupInfo, setSetupInfo } = useSetupInfo();
   const { setCurrentPage } = useSetupPage();
 
   const onClickNext = () => {
-    setSetupInfo({ ...setupInfo, blockchain });
     setCurrentPage(setupInfo.setupType === "import" ? "import" : "create");
   };
 
@@ -39,14 +37,14 @@ export const SetupBlockchainPage = () => {
       </SetupPageTitleSection>
       <SelectBlockchainSection>
         <SelectBlockchainButton
-          selected={blockchain === "eth"}
-          onClick={() => setBlockchain("eth")}
+          selected={setupInfo.blockchain === "eth"}
+          onClick={() => setSetupInfo({ ...setupInfo, blockchain: "eth" })}
         >
           Ethereum
         </SelectBlockchainButton>
         <SelectBlockchainButton
-          selected={blockchain === "sol"}
-          onClick={() => setBlockchain("sol")}
+          selected={setupInfo.blockchain === "sol"}
+          onClick={() => setSetupInfo({ ...setupInfo, blockchain: "sol" })}
         >
           Solana
         </SelectBlockchainButton>

@@ -11,7 +11,7 @@ export const GlobalTheme = css`
     --confirm: #98d8bd;
     --primary-gradient: linear-gradient(
       47deg,
-      rgba(105, 88, 214, 1) 10%,
+      rgba(142, 126, 223, 1) 10%,
       rgba(248, 124, 88, 1) 100%
     );
   }

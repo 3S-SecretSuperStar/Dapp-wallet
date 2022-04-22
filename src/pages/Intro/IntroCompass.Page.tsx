@@ -12,7 +12,7 @@ export const IntroCompassPage = () => {
   return (
     <Container>
       <div>
-        <button onClick={() => setPopupPage("main")}>Skip</button>
+        <button onClick={() => setPopupPage("welcome")}>Skip</button>
         <img src="/images/Intro/compass.svg" alt="compass img" />
       </div>
       <h2>Pay Friends</h2>

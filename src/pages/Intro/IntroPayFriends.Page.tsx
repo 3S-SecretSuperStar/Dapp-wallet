@@ -12,7 +12,7 @@ export const IntroPayFriendsPage = () => {
   return (
     <Container>
       <div>
-        <button onClick={() => setPopupPage("main")}>Skip</button>
+        <button onClick={() => setPopupPage("welcome")}>Skip</button>
         <img src="/images/Intro/friends.svg" alt="friends img" />
       </div>
       <h2>Pay Friends</h2>
