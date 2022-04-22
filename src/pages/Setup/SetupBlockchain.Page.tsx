@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useSetupPage } from "@hooks/useSetupPage";
-import { Blockchain, useSetupInfo } from "@hooks/useSetupInfo";
+import { useSetupPage, useSetupInfo } from "@hooks";
 import {
   SetupFormSection,
   SetupPageContainer,
   SetupPageTitleSection,
   SetupPageTopButtonBar,
 } from "@components/Setup";
-import { GradientH3 } from "@components/common/GradientText";
-import { Button, NextButton } from "@components/common";
+import { Button, NextButton, GradientH3 } from "@components/common";
 
 export const SetupBlockchainPage = () => {
   const { setupInfo, setSetupInfo } = useSetupInfo();

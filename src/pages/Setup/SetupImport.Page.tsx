@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NextButton, GradientH3 } from "@components/common";
-import { useSetupPage } from "@hooks/useSetupPage";
-import { useSetupInfo } from "@hooks/useSetupInfo";
+import { useSetupPage, useSetupInfo } from "@hooks";
 import {
   SetupPageContainer,
   SetupPageTitleSection,

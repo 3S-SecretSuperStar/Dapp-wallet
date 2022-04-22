@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { NextButton, GradientH3 } from "@components/common";
 import { generateMnemonic } from "bip39";
-import { useSetupPage } from "@hooks/useSetupPage";
-import { useSetupInfo } from "@hooks/useSetupInfo";
+import { useSetupPage, useSetupInfo } from "@hooks";
+import { NextButton, GradientH3 } from "@components/common";
 import {
   SetupPageContainer,
   SetupPageTitleSection,

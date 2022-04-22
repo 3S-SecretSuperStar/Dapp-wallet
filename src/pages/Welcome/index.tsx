@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { NextButton } from "@components/common/Button";
-import { TitleSection } from "@components/common/TitleSection";
-import { usePopupPage } from "@hooks/usePopupPage";
+import {
+  NextButton,
+  TitleSection,
+  ColumnFlexContainer,
+  GradientH3,
+} from "@components/common";
+import { usePopupPage } from "@hooks";
 import { BRAND } from "@utils/contants";
-import { ColumnFlexContainer } from "@components/common/ColumnFlexContainer";
-import { GradientH3 } from "@components/common/GradientText";
 
 export const PopupWelcomePage = () => {
   const { setCurrentPage } = usePopupPage();

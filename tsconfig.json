@@ -7,7 +7,12 @@
 		"esModuleInterop": true,
 		"baseUrl": "./src",
 		"paths": {
-			"@pages/*": ["./pages/*"],
+			"@pages": ["./pages"],
+			"@components": ["./components"],
+			"@utils": ["./utils"],
+			"@hooks": ["./hooks"],
+			"@storage": ["./storage"],
+			"@styles": ["./styles"],
 			"@components/*": ["./components/*"],
 			"@utils/*": ["./utils/*"],
 			"@hooks/*": ["./hooks/*"],

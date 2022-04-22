@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { IntroContainer, IntroNextButton } from "@components/Intro";
+import { IntroPageContainer, IntroNextButton } from "@components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
-import { useIntroPage } from "@hooks/useIntroPage";
-import { usePopupPage } from "@hooks/usePopupPage";
+import { useIntroPage, usePopupPage } from "@hooks";
 import { anyword } from "./IntroManage.Page";
 
 export const IntroCompassPage = () => {
@@ -24,7 +23,7 @@ export const IntroCompassPage = () => {
   );
 };
 
-const Container = styled(IntroContainer)`
+const Container = styled(IntroPageContainer)`
   background-color: var(--warm);
   color: var(--black);
 `;

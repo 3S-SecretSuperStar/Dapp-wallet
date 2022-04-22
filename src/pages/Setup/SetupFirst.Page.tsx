@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useSetupPage, useSetupInfo } from "@hooks";
 import { Button, GradientH3 } from "@components/common";
-import { useSetupPage } from "@hooks/useSetupPage";
-import { useSetupInfo } from "@hooks/useSetupInfo";
 import {
   SetupPageContainer,
   SetupPageTitleSection,

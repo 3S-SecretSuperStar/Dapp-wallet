@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useSetupPage } from "@hooks/useSetupPage";
-import { useSetupInfo } from "@hooks/useSetupInfo";
+import { useSetupPage, useSetupInfo } from "@hooks";
 import { BRAND } from "@utils/contants";
 import { PasswordInput } from "@components/common/PasswordInput";
 import { NextButton, GradientH3 } from "@components/common";

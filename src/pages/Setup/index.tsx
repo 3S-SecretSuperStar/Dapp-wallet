@@ -4,7 +4,7 @@ import { SetupPasswordPage } from "./SetupPassword.Page";
 import { SetupBlockchainPage } from "./SetupBlockchain.Page";
 import { SetupImportPage } from "./SetupImport.Page";
 import { SetupCreatePage } from "./SetupCreate.Page";
-import { useSetupPage } from "@hooks/useSetupPage";
+import { useSetupPage } from "@hooks";
 
 export const PopupSetupPage = () => {
   const { currentPage } = useSetupPage();

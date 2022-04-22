@@ -1,6 +1,6 @@
-import { IntroContainer, IntroNextButton } from "@components/Intro";
+import { IntroPageContainer, IntroNextButton } from "@components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
-import { usePopupPage } from "@hooks/usePopupPage";
+import { usePopupPage } from "@hooks";
 import React from "react";
 import styled from "styled-components";
 
@@ -23,7 +23,7 @@ export const IntroManagePage = () => {
   );
 };
 
-const Container = styled(IntroContainer)`
+const Container = styled(IntroPageContainer)`
   background-color: var(--strong);
   * {
     color: var(--bright);
