@@ -5,9 +5,6 @@ export type PopupPage =
   | "welcome"
   | "setup"
   | "main"
-  | "createWallet"
-  | "importWallet"
-  | "connectWallet"
   | "support"
   | "settings";
 
