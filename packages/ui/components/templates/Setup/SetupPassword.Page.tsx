@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useSetupPage, useSetupInfo, usePopupPage } from "hooks";
 import { BRAND } from "utils/contants";
-import { NextButton, GradientH3, PasswordInput } from "ui/components/common";
+import { NextButton, GradientH3, PasswordInput } from "../../atoms";
 import {
   SetupFormSection,
   SetupPageContainer,
   SetupPageTitleSection,
   SetupPageTopButtonBar,
-} from "ui/components/Setup";
+} from "../../organisms/Setup";
 
 export const SetupPasswordPage = () => {
   const { setCurrentPage } = useSetupPage();

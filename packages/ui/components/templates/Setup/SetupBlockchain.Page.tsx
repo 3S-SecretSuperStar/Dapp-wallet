@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useSetupPage, useSetupInfo } from "hooks";
+import { Button, NextButton, GradientH3 } from "../../atoms";
 import {
   SetupFormSection,
   SetupPageContainer,
   SetupPageTitleSection,
   SetupPageTopButtonBar,
-} from "ui/components/Setup";
-import { Button, NextButton, GradientH3 } from "ui/components/common";
+} from "../../organisms/Setup";
 
 export const SetupBlockchainPage = () => {
   const { setupInfo, setSetupInfo } = useSetupInfo();

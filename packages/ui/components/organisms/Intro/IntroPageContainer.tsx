@@ -1,5 +1,5 @@
-import { ColumnFlexContainer } from "../common";
 import styled from "styled-components";
+import { ColumnFlexContainer } from "../../atoms";
 
 export const IntroPageContainer = styled(ColumnFlexContainer)`
   div {

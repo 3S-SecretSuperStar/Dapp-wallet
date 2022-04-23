@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 import ShadowRoot from "react-shadow/styled-components";
 import Draggable from "react-draggable";
 import styled from "styled-components";
-import { FloatingSimple } from "ui/components/content/FloatingSimple";
-import { FloatingExpanded } from "ui/components/content/FloatingExpanded";
 
 const ShadowView = () => {
   const [expand, setExpand] = useState<boolean>(false);
@@ -15,13 +13,7 @@ const ShadowView = () => {
   return (
     <ShadowRoot.div>
       <Draggable>
-        <Container>
-          {!expand ? (
-            <FloatingSimple toggleExpand={toggleExpand} />
-          ) : (
-            <FloatingExpanded toggleExpand={toggleExpand} />
-          )}
-        </Container>
+        <Container>Hello Content Script</Container>
       </Draggable>
     </ShadowRoot.div>
   );

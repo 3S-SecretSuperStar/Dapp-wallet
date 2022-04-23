@@ -1,6 +1,6 @@
 import React, { TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
-import { TextArea } from "../common/TextArea";
+import { TextArea } from "../../atoms";
 import { SetupFormSection } from "./SetupFormSection";
 
 export const SetupSeedWordSection: React.FC<

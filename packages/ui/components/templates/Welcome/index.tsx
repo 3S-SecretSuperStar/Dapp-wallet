@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  NextButton,
-  TitleSection,
-  ColumnFlexContainer,
-  GradientH3,
-} from "ui/components/common";
+import { NextButton, ColumnFlexContainer, GradientH3 } from "../../atoms";
+import { TitleSection } from "../../molecules";
 import { usePopupPage } from "hooks";
 import { BRAND } from "utils/contants";
 

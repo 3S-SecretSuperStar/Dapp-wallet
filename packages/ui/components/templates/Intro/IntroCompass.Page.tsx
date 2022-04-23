@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { IntroPageContainer, IntroNextButton } from "ui/components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import { useIntroPage, usePopupPage } from "hooks";
 import { anyword } from "./IntroManage.Page";
+import { IntroNextButton, IntroPageContainer } from "../../organisms/Intro";
 
 export const IntroCompassPage = () => {
   const { setCurrentPage } = useIntroPage();

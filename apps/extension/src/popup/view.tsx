@@ -7,8 +7,8 @@ import {
   PopupMainPage,
   PopupSetupPage,
   PopupWelcomePage,
-} from "@pages";
-import { BottomNav } from "ui/components/common";
+} from "ui/components/templates";
+import { BottomNav } from "ui/components/molecules";
 
 const bottomNavDisplayingPages: PopupPage[] = [
   "main",

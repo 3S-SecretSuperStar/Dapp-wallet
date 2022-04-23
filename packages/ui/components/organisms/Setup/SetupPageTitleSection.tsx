@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleSection } from "../common/TitleSection";
+import { TitleSection } from "../../molecules";
 
 export const SetupPageTitleSection = styled(TitleSection)`
   img {

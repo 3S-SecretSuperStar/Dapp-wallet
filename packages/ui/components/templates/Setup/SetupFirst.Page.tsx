@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useSetupPage, useSetupInfo } from "hooks";
-import { Button, GradientH3 } from "ui/components/common";
+import { Button, GradientH3 } from "../../atoms";
 import {
   SetupPageContainer,
   SetupPageTitleSection,
   SetupPageTopButtonBar,
-} from "ui/components/Setup";
+} from "../../organisms/Setup";
 
 export const SetupFirstPage = () => {
   const { setCurrentPage } = useSetupPage();

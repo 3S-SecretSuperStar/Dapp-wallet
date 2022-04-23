@@ -1,4 +1,3 @@
-import { GradientH3, IconButton } from "../common";
 import {
   DownloadIcon,
   RefreshIcon,
@@ -7,6 +6,7 @@ import {
 } from "@heroicons/react/solid";
 import React from "react";
 import styled from "styled-components";
+import { GradientH3, IconButton } from "../../atoms";
 
 export const MainBalanceSection = () => {
   return (

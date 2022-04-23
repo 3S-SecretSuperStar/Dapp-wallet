@@ -1,8 +1,8 @@
-import { IntroPageContainer, IntroNextButton } from "ui/components/Intro";
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import { usePopupPage } from "hooks";
 import React from "react";
 import styled from "styled-components";
+import { IntroNextButton, IntroPageContainer } from "../../organisms/Intro";
 
 export const anyword =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut..";

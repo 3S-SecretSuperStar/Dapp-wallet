@@ -8,7 +8,7 @@ import {
 import { usePopupPage } from "hooks";
 import React from "react";
 import styled from "styled-components";
-import { IconButton } from "./IconButton";
+import { IconButton } from "../atoms/IconButton";
 
 export const BottomNav = () => {
   const { currentPage, setCurrentPage } = usePopupPage();

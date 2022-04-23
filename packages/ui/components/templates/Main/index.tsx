@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ColumnFlexContainer, IconButton } from "ui/components/common";
-import { MainPageHeader } from "ui/components/Main";
+import { ColumnFlexContainer } from "../../atoms";
+import { MainPageHeader } from "../../organisms/Main";
 
 export const PopupMainPage = () => {
   return (

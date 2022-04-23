@@ -2,6 +2,8 @@ import * as Bip39 from "bip39";
 import { Keypair } from "@solana/web3.js";
 import { derivePath } from "ed25519-hd-key";
 
+export const generateSeedWords = Bip39.generateMnemonic;
+
 export const deriveNewAccountFromMnemonic = (
   index: number,
   mnemonic: string,
