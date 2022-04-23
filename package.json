@@ -1,50 +1,25 @@
 {
-  "name": "Pengwyn",
+  "name": "pengwyn",
+  "description": "Pengwyn - Your pathfinder in Web3 world. Never get lost now!",
   "version": "0.1.0",
-  "description": "Pengwyn - Your only pathfinder in Web3 world.",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development npm run build",
-    "prod": "cross-env NODE_ENV=production npm run build",
-    "build": "webpack --watch --progress --config bundler/webpack.config.js"
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "author": "Hoon Wee",
-  "license": "ISC",
   "devDependencies": {
-    "@headlessui/react": "^1.5.0",
-    "@heroicons/react": "^1.0.6",
-    "@solana/web3.js": "^1.39.1",
-    "@types/chrome": "^0.0.180",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "@types/styled-components": "^5.1.25",
-    "bip39": "^3.0.4",
-    "buffer": "^6.0.3",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^10.2.4",
-    "cross-env": "^7.0.3",
-    "css-loader": "^6.7.1",
-    "ed25519-hd-key": "^1.2.0",
-    "ethers": "^5.6.4",
-    "html-webpack-plugin": "^5.5.0",
-    "motion": "^10.7.2",
-    "npm-run-all": "^4.1.5",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-draggable": "^4.4.4",
-    "react-shadow": "^19.0.3",
-    "stream-browserify": "^3.0.0",
-    "style-loader": "^3.3.1",
-    "styled-components": "^5.3.5",
-    "ts-loader": "^9.2.8",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "typescript": "^4.6.3",
-    "webpack": "^5.71.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-merge": "^5.8.0",
-    "zustand": "^4.0.0-rc.0"
+    "prettier": "latest",
+    "turbo": "latest"
   },
-  "resolutions": {
-    "styled-components": "^5"
-  }
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@6.32.4"
 }

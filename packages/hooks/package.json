@@ -1,0 +1,12 @@
+{
+  "name": "hooks",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "author": "Hoon Wee",
+  "license": "MIT",
+  "devDependencies": {
+    "zustand": "^4.0.0-rc.0",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.6.3"
+  }
+}

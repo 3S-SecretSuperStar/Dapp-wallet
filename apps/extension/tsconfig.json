@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+		"baseUrl": "./src",
+		"paths": {
+			"@pages": ["./pages"],
+			"@storage": ["./storage"],
+			"@storage/*": ["./storage/*"],
+		}
+  },
+  "extends": "tsconfig/base.json",
+  "include": [ "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ui",
+  "version": "0.1.0",
+  "main": "index.tsx",
+  "author": "Hoon Wee",
+  "license": "MIT",
+  "devDependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@types/react": "^17.0.43",
+    "@types/styled-components": "^5.1.25",
+    "hooks": "workspace:*",
+    "react": "^18.0.0",
+    "styled-components": "^5.3.5",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.6.3"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "author": "Hoon Wee",
+  "license": "MIT",
+  "devDependencies": {
+    "ethers": "^5.6.4",
+    "bip39": "^3.0.4",
+    "@solana/web3.js": "^1.39.1",
+    "ed25519-hd-key": "^1.2.0",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.6.3"
+  }
+}
