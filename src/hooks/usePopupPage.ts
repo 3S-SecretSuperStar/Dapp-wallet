@@ -5,6 +5,10 @@ export type PopupPage =
   | "welcome"
   | "setup"
   | "main"
+  | "history"
+  | "qrcode"
+  | "activity"
+  | "profile"
   | "support"
   | "settings";
 

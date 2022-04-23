@@ -1,3 +1,4 @@
+export { BottomNav } from "./BottomNav";
 export { IconButton } from "./IconButton";
 export { Button, NextButton } from "./Button";
 export { ColumnFlexContainer } from "./ColumnFlexContainer";

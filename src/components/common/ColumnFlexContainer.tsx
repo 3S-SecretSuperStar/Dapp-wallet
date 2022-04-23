@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ColumnFlexContainer = styled.div`
-  position: absolute;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: start;
   align-items: center;

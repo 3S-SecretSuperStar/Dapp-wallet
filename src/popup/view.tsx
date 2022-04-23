@@ -8,6 +8,7 @@ import {
   PopupSetupPage,
   PopupWelcomePage,
 } from "@pages";
+import { BottomNav } from "@components/common";
 
 export const PopupView = () => {
   const { currentPage } = usePopupPage();
@@ -20,6 +21,7 @@ export const PopupView = () => {
         {currentPage === "setup" && <PopupSetupPage />} */}
         <PopupMainPage />
       </Main>
+      <BottomNav />
     </>
   );
 };
