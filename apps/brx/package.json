@@ -1,5 +1,5 @@
 {
-  "name": "extension",
+  "name": "brx",
   "version": "0.1.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development npm run build",
