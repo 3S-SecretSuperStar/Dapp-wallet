@@ -22,14 +22,16 @@ export const PopupView = () => {
   const { currentPage } = usePopupPage();
   return (
     <>
-      <GlobalStyle />
       <Main>
-        {currentPage === "intro" && <PopupIntroPage />}
+        <GlobalStyle />
+        {/* {currentPage === "intro" && <PopupIntroPage />}
         {currentPage === "welcome" && <PopupWelcomePage />}
         {currentPage === "setup" && <PopupSetupPage />}
-        {currentPage === "main" && <PopupMainPage />}
+        {currentPage === "main" && <PopupMainPage />} */}
+        <PopupMainPage />
       </Main>
-      {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
+      {/* {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />} */}
+      <BottomNav />
     </>
   );
 };

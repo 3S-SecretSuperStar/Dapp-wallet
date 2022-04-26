@@ -4,21 +4,26 @@ import {
   UploadIcon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
-import React from "react";
+import { Blockchain } from "hooks/useSetupInfo";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GradientH3, IconButton } from "../../atoms";
 
 export const MainBalanceSection = () => {
+  const [blockchain, setBlockchain] = useState<Blockchain>("eth");
   return (
     <Container>
-      <Balance>
-        <GradientH3>Your available balance</GradientH3>
+      <Balance blockchain={blockchain}>
+        <h3>Your {blockchain === "eth" ? "ETH" : "SOL"} balance</h3>
         <BalanceAmount>
-          $55,100<span>.00</span>
+          55,100<span>.00</span>
         </BalanceAmount>
       </Balance>
       <Utilities>
-        <UtilIconButton size="small">
+        <UtilIconButton
+          onClick={() => setBlockchain(blockchain === "eth" ? "sol" : "eth")}
+          size="small"
+        >
           <RefreshIcon style={{ fill: "#6F87EE" }} />
         </UtilIconButton>
         <UtilIconButton size="small">
@@ -41,7 +46,7 @@ const Container = styled.section`
   padding: 0px 20px;
 `;
 
-const Balance = styled.div`
+const Balance = styled.div<{ blockchain: Blockchain }>`
   top: 0px;
   z-index: -1;
   display: flex;
@@ -49,9 +54,12 @@ const Balance = styled.div`
   align-items: flex-start;
   justify-content: start;
   height: 150px;
-  background-color: var(--dark);
+  background-color: ${(props) =>
+    props.blockchain === "eth" ? "var(--dark)" : "var(--primary)"};
   border-radius: 20px;
   h3 {
+    color: var(--bright);
+    opacity: 0.7;
     margin: 20px 0px 12px 20px;
   }
   h1 {
@@ -72,12 +80,13 @@ const BalanceAmount = styled.h1`
 
 const Utilities = styled.div`
   position: absolute;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
   background-color: var(--confirm);
-  width: 70%;
+  width: auto;
   height: 54px;
   border-radius: 20px;
   padding: 0px 12px;
