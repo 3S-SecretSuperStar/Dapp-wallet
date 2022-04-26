@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ColumnFlexContainer } from "../../atoms";
-import { MainPageHeader } from "../../organisms/Main";
-import { MainServiceListSection } from "../../organisms/Main/MainServiceListSection";
+import { MainPageHeader, MainServiceListSection } from "../../organisms/Main";
 
 export const PopupMainPage = () => {
   return (

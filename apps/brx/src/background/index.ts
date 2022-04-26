@@ -3,3 +3,4 @@
 //   console.log(sender);
 //   res("From the background script! ");
 // });
+export {};

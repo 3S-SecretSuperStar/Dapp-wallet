@@ -11,6 +11,12 @@ export const IconButton = styled.button<IconButtonProps>`
   border-radius: 14px;
   background-color: var(--bright);
   ${(props) => (props.size === "small" ? SizeSmall : SizeRegular)}
+  :hover {
+    svg {
+      transition: transform 0.3s ease-in-out;
+      transform: scale(1.2);
+    }
+  }
 `;
 
 const SizeRegular = css`

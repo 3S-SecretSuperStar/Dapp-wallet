@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainBalanceSection } from "./MainBalanceSection";
+import { MainCardListSection } from "./MainCardListSection";
 
 export const MainPageHeader = () => {
   return (
@@ -11,7 +11,7 @@ export const MainPageHeader = () => {
           <h2>Hoon Wee</h2>
         </div>
       </Greetings>
-      <MainBalanceSection />
+      <MainCardListSection />
     </Container>
   );
 };
@@ -32,6 +32,8 @@ const Greetings = styled.header`
   div {
     p {
       margin-bottom: 4px;
+      font-size: 12px;
+      opacity: 0.7;
     }
   }
 `;

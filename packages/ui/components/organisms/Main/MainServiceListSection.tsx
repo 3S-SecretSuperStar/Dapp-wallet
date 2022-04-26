@@ -3,23 +3,15 @@ import React from "react";
 import { IconButtonWithTitle } from "../../molecules";
 import {
   IoBookmarkSharp,
-  IoCompassOutline,
   IoCompassSharp,
-  IoContract,
-  IoContractOutline,
-  IoGlobeOutline,
-  IoGlobeSharp,
-  IoSettingsOutline,
   IoSettingsSharp,
   IoWater,
-  IoWaterOutline,
 } from "react-icons/io5";
 import {
   ChatIcon,
   DeviceMobileIcon,
   GlobeIcon,
   UserGroupIcon,
-  UsersIcon,
 } from "@heroicons/react/solid";
 import { IconButton } from "../../atoms";
 
@@ -38,7 +30,7 @@ export const MainServiceListSection = () => {
           <MultiSimButton>
             <UserGroupIcon fill={"#6881f2"} />
           </MultiSimButton>
-          <p>MutliSim</p>
+          <p>MultiSim</p>
         </IconButtonWithTitle>
         <IconButtonWithTitle>
           <MobileButton>

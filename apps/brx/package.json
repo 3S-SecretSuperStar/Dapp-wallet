@@ -2,8 +2,8 @@
   "name": "brx",
   "version": "0.1.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development npm run build",
-    "prod": "cross-env NODE_ENV=production npm run build",
+    "dev": "rm -rf dist && cross-env NODE_ENV=development npm run build",
+    "prod": "rm -rf dist && cross-env NODE_ENV=production npm run build",
     "build": "webpack --watch --progress --config bundler/webpack.config.js"
   },
   "author": "Hoon Wee",
