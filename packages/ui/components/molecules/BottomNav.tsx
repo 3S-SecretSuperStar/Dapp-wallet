@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/solid";
 import { usePopupPage } from "hooks";
 import React from "react";
+import { IoScanSharp } from "react-icons/io5";
 import styled from "styled-components";
 import { IconButton } from "../atoms/IconButton";
 
@@ -27,7 +28,7 @@ export const BottomNav = () => {
         <BookOpenIcon />
       </NormalIconButton>
       <QRCodeIconButton onClick={() => setCurrentPage("qrcode")}>
-        <QrcodeIcon />
+        <IoScanSharp />
       </QRCodeIconButton>
       <NormalIconButton
         onClick={() => setCurrentPage("activity")}

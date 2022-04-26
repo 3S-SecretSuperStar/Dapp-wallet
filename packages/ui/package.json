@@ -9,6 +9,7 @@
     "@types/react": "^17.0.43",
     "@types/styled-components": "^5.1.25",
     "hooks": "workspace:*",
+    "qrcode.react": "^3.0.1",
     "react": "^18.0.0",
     "react-icons": "^4.3.1",
     "tsconfig": "workspace:*",
