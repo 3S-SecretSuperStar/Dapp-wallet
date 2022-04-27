@@ -7,6 +7,7 @@
   "devDependencies": {
     "zustand": "^4.0.0-rc.0",
     "tsconfig": "workspace:*",
+    "types": "workspace:*",
     "typescript": "^4.6.3"
   }
 }

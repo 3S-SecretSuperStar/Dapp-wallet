@@ -1,11 +1,11 @@
 import create from "zustand";
-
-export type Blockchain = "eth" | "sol";
+import { Blockchain, CryptoKeypair } from "types";
 
 export interface SetupInfo {
   setupType: "import" | "create";
   seedWords: string;
   blockchain: Blockchain;
+  keypair: CryptoKeypair;
   password: string;
 }
 
@@ -18,6 +18,7 @@ export const useSetupInfo = create<UseSetupInfoProps>((set) => ({
   setupInfo: {
     setupType: "import",
     seedWords: "",
+    keypair: { pathIndex: 0, publicKey: "", privateKey: "" },
     blockchain: "eth",
     password: "",
   },

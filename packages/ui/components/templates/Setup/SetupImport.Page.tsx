@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useSetupPage, useSetupInfo } from "hooks";
-import { NextButton, GradientH3 } from "../../atoms";
+import { NextButton } from "../../atoms";
 import {
+  SetupImportPageTitleSection,
   SetupPageContainer,
-  SetupPageTitleSection,
   SetupPageTopButtonBar,
   SetupSeedWordSection,
 } from "../../organisms/Setup";
+import { isMnemonicValid } from "utils/account";
 
 export const SetupImportPage = () => {
   const [seedWords, setSeedWords] = useState<string>("");
   const { setCurrentPage } = useSetupPage();
   const { setupInfo, setSetupInfo } = useSetupInfo();
+  const isValid = useMemo(() => isMnemonicValid(seedWords), [seedWords]);
 
   const onClickNext = () => {
-    // TODO: SHould verify if the mnemonic is valid
+    if (!isValid) {
+      return;
+    }
     setSetupInfo({ ...setupInfo, seedWords });
-    setCurrentPage("password");
+    setCurrentPage("choose");
   };
 
   return (
@@ -24,22 +28,14 @@ export const SetupImportPage = () => {
       <SetupPageTopButtonBar>
         <button onClick={() => setCurrentPage("blockchain")}>Back</button>
       </SetupPageTopButtonBar>
-      <SetupPageTitleSection>
-        <img src="/images/common/logo.svg" alt="logo image" />
-        <h1>
-          Import your
-          <br />
-          Crypto Wallet
-        </h1>
-        <GradientH3>
-          Type in your wallet seed words. It should be 12-word sequence.
-        </GradientH3>
-      </SetupPageTitleSection>
+      <SetupImportPageTitleSection />
       <SetupSeedWordSection
         onChange={(e) => setSeedWords(e.target.value)}
         value={seedWords}
       />
-      <NextButton onClick={onClickNext}>Next</NextButton>
+      <NextButton disabled={!isValid} onClick={onClickNext}>
+        Next
+      </NextButton>
     </SetupPageContainer>
   );
 };

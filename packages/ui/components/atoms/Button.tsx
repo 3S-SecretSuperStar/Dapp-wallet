@@ -28,6 +28,7 @@ const ButtonStyle = styled.button`
   border-radius: 16px;
   height: 40px;
   min-width: 120px;
+  opacity: 1;
   * {
     color: var(--bright);
   }
@@ -40,5 +41,9 @@ const ButtonStyle = styled.button`
     height: 12px;
     padding: 0px 0px;
     stroke-width: 4px;
+  }
+  :disabled {
+    opacity: 0.2;
+    cursor: default;
   }
 `;

@@ -28,10 +28,9 @@ export const PopupView = () => {
         {currentPage === "welcome" && <PopupWelcomePage />}
         {currentPage === "setup" && <PopupSetupPage />}
         {currentPage === "main" && <PopupMainPage />} */}
-        <PopupMainPage />
+        <PopupSetupPage />
       </Main>
       {/* {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />} */}
-      <BottomNav />
     </>
   );
 };

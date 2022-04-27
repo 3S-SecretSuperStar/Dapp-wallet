@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { BookOpenIcon, RefreshIcon } from "@heroicons/react/solid";
-import { Blockchain } from "hooks/useSetupInfo";
+import { Blockchain } from "types";
 import { QRCodeSVG } from "qrcode.react";
 import { IoSendSharp } from "react-icons/io5";
 import { BigCircle, SmallCircle } from "./CardCommon";

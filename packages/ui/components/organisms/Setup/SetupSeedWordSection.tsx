@@ -1,6 +1,6 @@
 import React, { TextareaHTMLAttributes } from "react";
 import styled from "styled-components";
-import { TextArea } from "../../atoms";
+import { TextArea, Warning } from "../../atoms";
 import { SetupFormSection } from "./SetupFormSection";
 
 export const SetupSeedWordSection: React.FC<
@@ -25,4 +25,8 @@ const SeedWordsTextArea = styled(TextArea)`
   font-weight: 600;
   height: 150px;
   width: 100%;
+`;
+
+const SeedInvalidWarning = styled(Warning)`
+  margin-bottom: 12px;
 `;

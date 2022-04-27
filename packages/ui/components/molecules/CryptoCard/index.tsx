@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { DUMMY_PUB_KEY } from "utils/contants";
 import { CardFront } from "./CardFront";
-import { Blockchain } from "hooks/useSetupInfo";
+import { Blockchain } from "types";
 import { CardBack } from "./CardBack";
 
 export const CryptoCard: React.FC<{

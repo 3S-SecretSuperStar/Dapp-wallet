@@ -88,14 +88,19 @@ importers:
   packages/hooks:
     specifiers:
       tsconfig: workspace:*
+      types: workspace:*
       typescript: ^4.6.3
       zustand: ^4.0.0-rc.0
     devDependencies:
       tsconfig: link:../tsconfig
+      types: link:../types
       typescript: 4.6.3
       zustand: 4.0.0-rc.0
 
   packages/tsconfig:
+    specifiers: {}
+
+  packages/types:
     specifiers: {}
 
   packages/ui:
@@ -108,6 +113,7 @@ importers:
       react: ^18.0.0
       react-icons: ^4.3.1
       tsconfig: workspace:*
+      types: workspace:*
       typescript: ^4.6.3
       utils: workspace:*
     devDependencies:
@@ -119,6 +125,7 @@ importers:
       react: 18.0.0
       react-icons: 4.3.1_react@18.0.0
       tsconfig: link:../tsconfig
+      types: link:../types
       typescript: 4.6.3
       utils: link:../utils
 
@@ -129,6 +136,7 @@ importers:
       ed25519-hd-key: ^1.2.0
       ethers: ^5.6.4
       tsconfig: workspace:*
+      types: workspace:*
       typescript: ^4.6.3
     devDependencies:
       '@solana/web3.js': 1.39.1
@@ -136,6 +144,7 @@ importers:
       ed25519-hd-key: 1.2.0
       ethers: 5.6.4
       tsconfig: link:../tsconfig
+      types: link:../types
       typescript: 4.6.3
 
 packages:

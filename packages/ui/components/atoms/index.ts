@@ -1,3 +1,4 @@
+export { Warning } from "./Warning";
 export { Button, NextButton } from "./Button";
 export { ColumnFlexContainer } from "./ColumnFlexContainer";
 export { GradientH3 } from "./GradientText";

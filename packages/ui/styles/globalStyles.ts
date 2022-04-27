@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 16px;
     border: 2px solid transparent;
     opacity: 0.2;
+    transition: opacity 0.2s ease-in-out;
     :focus {
       opacity: 1;
     }

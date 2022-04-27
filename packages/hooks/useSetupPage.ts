@@ -4,6 +4,7 @@ export type SetupPage =
   | "first"
   | "blockchain"
   | "import"
+  | "choose"
   | "create"
   | "password";
 

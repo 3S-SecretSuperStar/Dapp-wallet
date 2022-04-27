@@ -1,4 +1,4 @@
-import { Blockchain } from "hooks/useSetupInfo";
+import { Blockchain } from "types";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { abbrevPublicKey } from "utils/account";

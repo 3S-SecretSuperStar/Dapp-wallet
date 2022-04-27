@@ -12,4 +12,9 @@ export const TitleSection = styled.section`
   h3 {
     text-align: left;
   }
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
 `;
