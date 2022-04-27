@@ -10,7 +10,10 @@ export const CardFront: React.FC<{
 }> = ({ blockchain, publicKey }) => {
   return (
     <Front blockchain={blockchain}>
-      <p>{abbrevPublicKey(publicKey)}</p>
+      <FrontHeader>
+        <button>{abbrevPublicKey(publicKey)}</button>
+        <p>{blockchain === "eth" ? "ETH" : "SOL"}</p>
+      </FrontHeader>
       <BalanceAmount>
         55,100<span>.00</span>
       </BalanceAmount>
@@ -28,15 +31,6 @@ const Front = styled.div<{ blockchain: Blockchain }>`
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
-  p {
-    color: var(--bright);
-    opacity: 0.7;
-    margin: 16px 0px 8px 20px;
-  }
-  h1 {
-    margin-left: 20px;
-    font-size: 32px;
-  }
   backface-visibility: hidden;
   background-color: ${(props) =>
     props.blockchain === "eth" ? "var(--primary)" : "var(--dark)"};
@@ -45,8 +39,33 @@ const Front = styled.div<{ blockchain: Blockchain }>`
   overflow: hidden;
 `;
 
+const FrontHeader = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0px 8px 12px;
+  width: 80%;
+  button {
+    color: var(--bright);
+    opacity: 0.7;
+    transition: opacity 0.4s linear;
+    :hover {
+      opacity: 1;
+    }
+  }
+  p {
+    color: var(--bright);
+    opacity: 0.7;
+    font-style: italic;
+  }
+`;
+
 const BalanceAmount = styled.h1`
   color: var(--bright);
+  font-size: 32px;
+  margin-left: 12px;
   span {
     color: var(--bright);
     opacity: 50%;
