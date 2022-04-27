@@ -1,3 +1,3 @@
-export { MainServiceListSection } from "./MainServiceListSection";
-export { MainCardListSection } from "./MainCardListSection";
+export { MainServiceListSection } from "./MainServiceList.Section";
+export { MainCardListSection } from "./MainCardList.Section";
 export { MainPageHeader } from "./MainPageHeader";

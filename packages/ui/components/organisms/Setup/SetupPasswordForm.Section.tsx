@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { usePopupPage, useSetupInfo } from "hooks";
 import { NextButton, PasswordInput, Warning } from "../../atoms";
-import { SetupFormSection } from "./SetupFormSection";
+import { SetupFormSection } from "./SetupForm.Section";
 
 export const SetupPasswordFormSection = () => {
   const { setCurrentPage: setPopupPage } = usePopupPage();

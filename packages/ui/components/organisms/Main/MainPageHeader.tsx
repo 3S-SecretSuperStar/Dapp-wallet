@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainCardListSection } from "./MainCardListSection";
+import { MainCardListSection } from "./MainCardList.Section";
 
 export const MainPageHeader = () => {
   return (

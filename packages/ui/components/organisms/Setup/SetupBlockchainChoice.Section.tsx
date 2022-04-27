@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { SetupFormSection } from "./SetupFormSection";
+import { SetupFormSection } from "./SetupForm.Section";
 import { useSetupInfo } from "hooks";
 import { Button } from "../../atoms";
 

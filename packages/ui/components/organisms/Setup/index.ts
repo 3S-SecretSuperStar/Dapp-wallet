@@ -7,13 +7,13 @@ export { SetupFirstPageTitleSection } from "./SetupFirstPageTitle.Section";
 export { SetupImportPageTitleSection } from "./SetupImportPageTitle.Section";
 export { SetupCreatePageTitleSection } from "./SetupCreatePageTitle.Section";
 /** Choose Address Page */
-export { SetupAddressListSection } from "./SetupAddressListSection";
+export { SetupAddressListSection } from "./SetupAddressList.Section";
 export { SetupChooseAddressPageTitleSection } from "./SetupChooseAddressPageTitle.Section";
 /** Password Page */
-export { SetupPasswordFormSection } from "./SetupPasswordFormSection";
+export { SetupPasswordFormSection } from "./SetupPasswordForm.Section";
 export { SetupPasswordPageTitleSection } from "./SetupPasswordPageTitle.Section";
 /** Common */
-export { SetupFormSection } from "./SetupFormSection";
+export { SetupFormSection } from "./SetupForm.Section";
 export { SetupPageContainer } from "./SetupPageContainer";
 export { SetupPageTopButtonBar } from "./SetupPageTopButtonBar";
-export { SetupSeedWordSection } from "./SetupSeedWordSection";
+export { SetupSeedWordSection } from "./SetupSeedWord.Section";
