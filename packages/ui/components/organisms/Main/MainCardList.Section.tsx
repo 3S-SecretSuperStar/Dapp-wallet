@@ -9,8 +9,6 @@ export const MainCardListSection = () => {
   const [index, setIndex] = useState<number>(0);
   const [wallets, setWallets] = useState<CryptoWallet[]>([]);
 
-  console.log(wallets);
-
   const missingBlockchain = () => {
     const blockchains = wallets.map((wallet) => wallet.blockchain);
     return !blockchains.includes("eth") ? "eth" : "sol";
@@ -28,7 +26,7 @@ export const MainCardListSection = () => {
   };
 
   const swipeNext = () => {
-    if (index === wallets.length) return;
+    if (index === 1) return;
     setIndex(index + 1);
   };
 

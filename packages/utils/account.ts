@@ -26,6 +26,13 @@ const range = (start: number, end: number) =>
     .fill(0)
     .map((_, idx) => start + idx);
 
+/**
+ * Generate a single keypair
+ *
+ * @param mnemonic - Mnemonic words to derive keypair.
+ * @param blockchain - Type of blockchain. Currently supports `eth` and `sol`.
+ * @returns A crypto keypair derived from given parameters.
+ */
 export const generateKeypair = (
   mnemonic: string,
   blockchain: Blockchain
