@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { usePopupPage, useSetupPage } from "hooks";
+import { usePopupPage, useSetupInfo, useSetupPage } from "hooks";
 import { Button } from "../../atoms";
 import {
   SetupPageContainer,
@@ -8,12 +8,33 @@ import {
   SetupUsernamePageInputSection,
   SetupUsernamePageTitleSection,
 } from "../../organisms/Setup";
+import { storageUserInfo } from "storage";
+import { CryptoWallet } from "types";
 
 export const SetupUsernamePage = () => {
   const { setCurrentPage } = useSetupPage();
   const { setCurrentPage: setPage } = usePopupPage();
+  const { setupInfo } = useSetupInfo();
+  const { setUserInfo } = storageUserInfo;
+
   const onClickBack = () => setCurrentPage("password");
-  const onClickStart = () => {
+
+  const onClickStart = async () => {
+    const username = setupInfo.username;
+    const password = setupInfo.password;
+    const wallets: CryptoWallet[] = [
+      {
+        mnemonic: setupInfo.seedWords,
+        blockchain: setupInfo.blockchain,
+        accounts: [setupInfo.keypair],
+        mainAccount: setupInfo.keypair,
+      },
+    ];
+    await setUserInfo({
+      username,
+      password,
+      wallets,
+    });
     setPage("main");
   };
 

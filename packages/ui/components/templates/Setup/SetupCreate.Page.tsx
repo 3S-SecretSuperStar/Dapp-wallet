@@ -7,7 +7,7 @@ import {
   SetupPageTopButtonBar,
   SetupSeedWordSection,
 } from "../../organisms/Setup";
-import { generateMnemonic } from "utils/account";
+import { generateKeypair, generateMnemonic } from "utils/account";
 
 export const SetupCreatePage = () => {
   const [seedWords, setSeedWords] = useState<string>("");
@@ -24,7 +24,8 @@ export const SetupCreatePage = () => {
     setupInfo.revisit ? setCurrentPage("first") : setCurrentPage("blockchain");
 
   const onClickNext = () => {
-    setSetupInfo({ ...setupInfo, seedWords });
+    const keypair = generateKeypair(seedWords, setupInfo.blockchain);
+    setSetupInfo({ ...setupInfo, seedWords, keypair });
     setupInfo.revisit ? setPage("main") : setCurrentPage("password");
   };
 

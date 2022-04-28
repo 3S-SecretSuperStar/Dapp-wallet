@@ -1,6 +1,6 @@
 import { LocalStorage, LocalStorageKeys } from ".";
 
-export const setFloatPosition = (floatPosition: {
+const setFloatPosition = (floatPosition: {
   x: number;
   y: number;
 }): Promise<void> => {
@@ -12,7 +12,7 @@ export const setFloatPosition = (floatPosition: {
   });
 };
 
-export const getFloatPosition = (): Promise<{ x: number; y: number }> => {
+const getFloatPosition = (): Promise<{ x: number; y: number }> => {
   const keys: LocalStorageKeys[] = ["floatPosition"];
   return new Promise((resolve) => {
     chrome.storage.local.get(keys, (res: LocalStorage) => {
@@ -20,3 +20,5 @@ export const getFloatPosition = (): Promise<{ x: number; y: number }> => {
     });
   });
 };
+
+export const storageFloatPosition = { getFloatPosition, setFloatPosition };

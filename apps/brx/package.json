@@ -42,7 +42,8 @@
     "hooks": "workspace:*",
     "ui": "workspace:*",
     "utils": "workspace:*",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "types": "workspace:*"
   },
   "resolutions": {
     "styled-components": "^5"

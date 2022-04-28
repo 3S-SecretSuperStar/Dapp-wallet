@@ -1,0 +1,15 @@
+{
+  "name": "storage",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "author": "Hoon Wee",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.180",
+    "hooks": "workspace:*",
+    "tsconfig": "workspace:*",
+    "types": "workspace:*",
+    "typescript": "^4.6.3",
+    "utils": "workspace:*"
+  }
+}

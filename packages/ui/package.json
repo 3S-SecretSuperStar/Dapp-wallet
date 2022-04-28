@@ -15,6 +15,7 @@
     "react-icons": "^4.3.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.6.3",
-    "utils": "workspace:*"
+    "utils": "workspace:*",
+    "storage": "workspace:*"
   }
 }

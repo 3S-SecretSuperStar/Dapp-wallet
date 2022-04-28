@@ -21,8 +21,10 @@ export const CryptoCardEmpty: React.FC<{
 
   return (
     <Container>
-      <h3>No {cryptoName} account found.</h3>
-      <AddButton onClick={onClickAddAccount}>Add account</AddButton>
+      <NoAccount>No {cryptoName} account found.</NoAccount>
+      <AddButton onClick={onClickAddAccount}>
+        <h3>Add +</h3>
+      </AddButton>
     </Container>
   );
 };
@@ -33,7 +35,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 24px;
   padding-top: 12px;
   padding-left: 12px;
   min-width: 240px;
@@ -42,6 +44,10 @@ const Container = styled.div`
   border-radius: 20px;
   border: 3px dashed rgba(0, 0, 0, 0.2);
   z-index: 0;
+`;
+
+const NoAccount = styled.h3`
+  color: rgba(0, 0, 0, 0.2);
 `;
 
 const AddButton = styled(Button)`

@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { storageUserInfo } from "storage";
 import styled from "styled-components";
 import { MainCardListSection } from "./MainCardList.Section";
 
 export const MainPageHeader = () => {
+  const { getUserInfo } = storageUserInfo;
+  const [username, setUsername] = useState<string>("User");
+
+  useEffect(() => {
+    getUserInfo().then((userInfo) => {
+      setUsername(userInfo.username);
+    });
+  }, []);
+
   return (
     <Container>
       <Greetings>
         <div>
           <p>Welcome</p>
-          <h2>Hoon Wee</h2>
+          <h2>{username}</h2>
         </div>
       </Greetings>
       <MainCardListSection />

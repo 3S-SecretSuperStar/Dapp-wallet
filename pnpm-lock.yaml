@@ -43,6 +43,7 @@ importers:
       ts-loader: ^9.2.8
       tsconfig: workspace:*
       tsconfig-paths-webpack-plugin: ^3.5.2
+      types: workspace:*
       typescript: ^4.6.3
       ui: workspace:*
       utils: workspace:*
@@ -78,6 +79,7 @@ importers:
       ts-loader: 9.2.8_typescript@4.6.3+webpack@5.71.0
       tsconfig: link:../../packages/tsconfig
       tsconfig-paths-webpack-plugin: 3.5.2
+      types: link:../../packages/types
       typescript: 4.6.3
       ui: link:../../packages/ui
       utils: link:../../packages/utils
@@ -97,6 +99,22 @@ importers:
       typescript: 4.6.3
       zustand: 4.0.0-rc.0
 
+  packages/storage:
+    specifiers:
+      '@types/chrome': ^0.0.180
+      hooks: workspace:*
+      tsconfig: workspace:*
+      types: workspace:*
+      typescript: ^4.6.3
+      utils: workspace:*
+    devDependencies:
+      '@types/chrome': 0.0.180
+      hooks: link:../hooks
+      tsconfig: link:../tsconfig
+      types: link:../types
+      typescript: 4.6.3
+      utils: link:../utils
+
   packages/tsconfig:
     specifiers: {}
 
@@ -112,6 +130,7 @@ importers:
       qrcode.react: ^3.0.1
       react: ^18.0.0
       react-icons: ^4.3.1
+      storage: workspace:*
       tsconfig: workspace:*
       types: workspace:*
       typescript: ^4.6.3
@@ -124,6 +143,7 @@ importers:
       qrcode.react: 3.0.1_react@18.0.0
       react: 18.0.0
       react-icons: 4.3.1_react@18.0.0
+      storage: link:../storage
       tsconfig: link:../tsconfig
       types: link:../types
       typescript: 4.6.3

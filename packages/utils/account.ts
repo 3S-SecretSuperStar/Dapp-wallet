@@ -26,6 +26,11 @@ const range = (start: number, end: number) =>
     .fill(0)
     .map((_, idx) => start + idx);
 
+export const generateKeypair = (
+  mnemonic: string,
+  blockchain: Blockchain
+): CryptoKeypair => deriveCryptoKeypair(mnemonic, blockchain, 0);
+
 /**
  * Restores deterministic keypairs for given blockchain type.
  *
@@ -34,7 +39,8 @@ const range = (start: number, end: number) =>
  * @param start - Start index of the derivation path.
  * @param end - End index of the derivation path.
  * @returns A list of crypto keypair derived from given parameters.
- */ export const restoreKeypairs = (
+ */
+export const restoreKeypairs = (
   mnemonic: string,
   blockchain: Blockchain,
   start: number,
