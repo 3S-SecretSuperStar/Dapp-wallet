@@ -9,7 +9,9 @@ export const SetupFirstPageChoiceSection = () => {
 
   const onClickNext = (setupType: "import" | "create") => {
     setSetupInfo({ ...setupInfo, setupType });
-    setCurrentPage("blockchain");
+    setupInfo.revisit
+      ? setCurrentPage(setupType)
+      : setCurrentPage("blockchain");
   };
 
   return (

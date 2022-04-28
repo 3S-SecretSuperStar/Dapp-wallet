@@ -28,6 +28,8 @@ const ButtonStyle = styled.button`
   border-radius: 16px;
   height: 40px;
   min-width: 120px;
+  padding-left: 32px;
+  padding-right: 32px;
   opacity: 1;
   * {
     color: var(--bright);

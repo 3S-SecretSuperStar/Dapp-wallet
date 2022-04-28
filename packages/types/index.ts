@@ -4,12 +4,14 @@ export interface CryptoKeypair {
   pathIndex: number;
   publicKey: string;
   privateKey: string;
+  nickname?: string;
 }
 
 export interface CryptoWallet {
   mnemonic: string;
   blockchain: Blockchain;
   accounts: CryptoKeypair[];
+  mainAccount: CryptoKeypair;
 }
 
 export interface UserInfo {

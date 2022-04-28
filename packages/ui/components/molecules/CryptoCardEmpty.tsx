@@ -1,16 +1,28 @@
+import { usePopupPage, useSetupInfo, useSetupPage } from "hooks";
 import React from "react";
 import styled from "styled-components";
 import { Blockchain } from "types";
-import { Button, GradientH3 } from "../atoms";
+import { Button } from "../atoms";
 
 export const CryptoCardEmpty: React.FC<{
   blockchain: Blockchain;
 }> = ({ blockchain }) => {
+  const { setupInfo, setSetupInfo } = useSetupInfo();
+  const { setCurrentPage: setSetupPage } = useSetupPage();
+  const { setCurrentPage: setPage } = usePopupPage();
+
   const cryptoName = blockchain === "eth" ? "ETH" : "SOL";
+
+  const onClickAddAccount = () => {
+    setSetupInfo({ ...setupInfo, blockchain, revisit: true });
+    setSetupPage("first");
+    setPage("setup");
+  };
+
   return (
     <Container>
       <h3>No {cryptoName} account found.</h3>
-      <AddButton>Add account</AddButton>
+      <AddButton onClick={onClickAddAccount}>Add account</AddButton>
     </Container>
   );
 };

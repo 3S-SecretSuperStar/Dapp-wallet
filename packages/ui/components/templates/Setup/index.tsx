@@ -6,6 +6,7 @@ import { SetupImportPage } from "./SetupImport.Page";
 import { SetupCreatePage } from "./SetupCreate.Page";
 import { useSetupPage } from "hooks";
 import { SetupChooseAddressPage } from "./SetupChooseAddress.Page";
+import { SetupUsernamePage } from "./SetupUsername.Page";
 
 export const PopupSetupPage = () => {
   const { currentPage } = useSetupPage();
@@ -17,6 +18,7 @@ export const PopupSetupPage = () => {
       {currentPage === "create" && <SetupCreatePage />}
       {currentPage === "choose" && <SetupChooseAddressPage />}
       {currentPage === "password" && <SetupPasswordPage />}
+      {currentPage === "username" && <SetupUsernamePage />}
     </>
   );
 };

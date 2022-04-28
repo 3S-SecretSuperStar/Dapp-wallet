@@ -6,6 +6,7 @@ export type SetupPage =
   | "import"
   | "choose"
   | "create"
+  | "username"
   | "password";
 
 interface UseSetupPageProps {

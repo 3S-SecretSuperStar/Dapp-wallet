@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSetupPage, useSetupInfo } from "hooks";
+import { useSetupPage, useSetupInfo, usePopupPage } from "hooks";
 import { NextButton } from "../../atoms";
 import {
   SetupCreatePageTitleSection,
@@ -13,15 +13,19 @@ export const SetupCreatePage = () => {
   const [seedWords, setSeedWords] = useState<string>("");
   const { setupInfo, setSetupInfo } = useSetupInfo();
   const { setCurrentPage } = useSetupPage();
+  const { setCurrentPage: setPage } = usePopupPage();
 
   const createNewMnemonic = () => {
     const generatedMnemonic = generateMnemonic();
     setSeedWords(generatedMnemonic);
   };
 
+  const onClickBack = () =>
+    setupInfo.revisit ? setCurrentPage("first") : setCurrentPage("blockchain");
+
   const onClickNext = () => {
     setSetupInfo({ ...setupInfo, seedWords });
-    setCurrentPage("password");
+    setupInfo.revisit ? setPage("main") : setCurrentPage("password");
   };
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export const SetupCreatePage = () => {
   return (
     <SetupPageContainer>
       <SetupPageTopButtonBar>
-        <button onClick={() => setCurrentPage("blockchain")}>Back</button>
+        <button onClick={onClickBack}>Back</button>
       </SetupPageTopButtonBar>
       <SetupCreatePageTitleSection />
       <SetupSeedWordSection readOnly value={seedWords} />

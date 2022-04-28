@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { GlobalStyle } from "ui/styles/globalStyles";
 import { PopupPage, usePopupPage } from "hooks/usePopupPage";
@@ -19,19 +19,21 @@ const bottomNavDisplayingPages: PopupPage[] = [
 ];
 
 export const PopupView = () => {
-  const { currentPage } = usePopupPage();
+  const { currentPage, setCurrentPage } = usePopupPage();
+  useEffect(() => {
+    setCurrentPage("welcome");
+  }, []);
   return (
     <>
       <Main>
         <GlobalStyle />
-        {/* {currentPage === "intro" && <PopupIntroPage />}
+        {/* {currentPage === "intro" && <PopupIntroPage />} */}
         {currentPage === "welcome" && <PopupWelcomePage />}
-        {currentPage === "setup" && <PopupSetupPage />} */}
-        {/* {currentPage === "main" && <PopupMainPage />} */}
-        <PopupMainPage />
+        {currentPage === "setup" && <PopupSetupPage />}
+        {currentPage === "main" && <PopupMainPage />}
       </Main>
-      {/* {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />} */}
-      <BottomNav />
+      {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
+      {/* <BottomNav /> */}
     </>
   );
 };

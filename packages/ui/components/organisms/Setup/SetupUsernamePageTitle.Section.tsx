@@ -1,17 +1,16 @@
-import React from "react";
 import { GradientH3 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
-export const SetupPasswordPageTitleSection = () => {
+export const SetupUsernamePageTitleSection = () => {
   return (
     <TitleSection>
       <img src="/images/common/logo.svg" alt="logo image" />
       <h1>
-        Create
+        Setup your
         <br />
-        New Password
+        Username
       </h1>
-      <GradientH3>Setup your password. Pick a safe one!</GradientH3>
+      <GradientH3>Last step! We need your name to call you.</GradientH3>
     </TitleSection>
   );
 };

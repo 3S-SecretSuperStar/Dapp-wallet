@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import styled from "styled-components";
-import { usePopupPage, useSetupInfo } from "hooks";
+import { useSetupInfo, useSetupPage } from "hooks";
 import { NextButton, PasswordInput, Warning } from "../../atoms";
 import { SetupFormSection } from "./SetupForm.Section";
 
 export const SetupPasswordFormSection = () => {
-  const { setCurrentPage: setPopupPage } = usePopupPage();
   const { setupInfo, setSetupInfo } = useSetupInfo();
+  const { setCurrentPage } = useSetupPage();
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -22,7 +22,7 @@ export const SetupPasswordFormSection = () => {
     }
     setErrorMessage("");
     setSetupInfo({ ...setupInfo, password });
-    setPopupPage("main");
+    setCurrentPage("username");
   };
 
   return (
@@ -30,7 +30,7 @@ export const SetupPasswordFormSection = () => {
       <FormSection>
         <div>
           {errorMessage.length > 0 && <FormWarning>{errorMessage}</FormWarning>}
-          <h4>New Password</h4>
+          <h4>Password (5~12 chars long)</h4>
           <PasswordInput
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -44,7 +44,7 @@ export const SetupPasswordFormSection = () => {
           />
         </div>
       </FormSection>
-      <NextButton onClick={onClickNext}>Proceed</NextButton>
+      <NextButton onClick={onClickNext}>Next</NextButton>
     </>
   );
 };

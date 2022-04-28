@@ -15,6 +15,9 @@ export const SetupImportPage = () => {
   const { setupInfo, setSetupInfo } = useSetupInfo();
   const isValid = useMemo(() => isMnemonicValid(seedWords), [seedWords]);
 
+  const onClickBack = () =>
+    setupInfo.revisit ? setCurrentPage("first") : setCurrentPage("blockchain");
+
   const onClickNext = () => {
     if (!isValid) {
       return;
@@ -26,7 +29,7 @@ export const SetupImportPage = () => {
   return (
     <SetupPageContainer>
       <SetupPageTopButtonBar>
-        <button onClick={() => setCurrentPage("blockchain")}>Back</button>
+        <button onClick={onClickBack}>Back</button>
       </SetupPageTopButtonBar>
       <SetupImportPageTitleSection />
       <SetupSeedWordSection
