@@ -72,7 +72,7 @@ const LeftClickArea = styled.div`
   top: 0;
   width: 52px;
   height: 100%;
-  z-index: 50;
+  z-index: 20;
   cursor: pointer;
 `;
 
@@ -82,6 +82,6 @@ const RightClickArea = styled.div`
   top: 0;
   width: 52px;
   height: 100%;
-  z-index: 50;
+  z-index: 20;
   cursor: pointer;
 `;

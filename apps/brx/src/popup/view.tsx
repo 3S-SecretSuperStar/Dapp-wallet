@@ -9,7 +9,9 @@ import {
   PopupWelcomePage,
 } from "ui/components/templates";
 import { BottomNav } from "ui/components/molecules";
-import { storageUserInfo } from "../../../../packages/ui/node_modules/storage";
+import { storageUserInfo } from "storage";
+import { useModal } from "hooks";
+import { ModalPageContainer } from "ui/components/atoms";
 
 const bottomNavDisplayingPages: PopupPage[] = [
   "main",
@@ -22,6 +24,7 @@ const bottomNavDisplayingPages: PopupPage[] = [
 export const PopupView = () => {
   const { currentPage, setCurrentPage } = usePopupPage();
   const { getUserInfo } = storageUserInfo;
+  const { isModalOpen } = useModal();
 
   useEffect(() => {
     getUserInfo().then((userInfo) => {
@@ -41,6 +44,7 @@ export const PopupView = () => {
         {currentPage === "main" && <PopupMainPage />}
       </Main>
       {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
+      {isModalOpen && <ModalPageContainer />}
     </>
   );
 };

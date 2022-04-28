@@ -1,3 +1,4 @@
+export { ModalPageContainer } from "./ModalPageContainer";
 export { Warning } from "./Warning";
 export { Button, NextButton } from "./Button";
 export { ColumnFlexContainer } from "./ColumnFlexContainer";

@@ -55,6 +55,7 @@ const Container = styled.nav`
   align-items: center;
   justify-content: space-around;
   height: 64px;
+  z-index: 30;
 `;
 
 const NormalIconButton = styled(IconButton)<{ selected: boolean }>`

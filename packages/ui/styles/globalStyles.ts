@@ -13,15 +13,15 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--black);
     margin: 0;
   }
-  body {
+  html {
     background-color: var(--bright);
     ::-webkit-scrollbar {
       display: none;
     }
     -ms-overflow-style: none;
     scrollbar-width: none;
-    width: 320px;
-    height: 580px;
+    width: var(--popup-width);
+    height: var(--popup-height);
   }
   input, textarea {
     height: 40px;

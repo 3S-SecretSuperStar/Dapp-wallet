@@ -1,3 +1,4 @@
+export { useModal } from "./useModal";
 export { useIntroPage } from "./useIntroPage";
 export { usePopupMenu } from "./usePopupMenu";
 export { usePopupPage } from "./usePopupPage";

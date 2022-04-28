@@ -14,6 +14,8 @@ export const GlobalTheme = css`
       rgba(142, 126, 223, 1) 10%,
       rgba(248, 124, 88, 1) 100%
     );
+    --popup-width: 320px;
+    --popup-height: 580px;
   }
   // TODO: Add proper color theme for dark mode
 `;

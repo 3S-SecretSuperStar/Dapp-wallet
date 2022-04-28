@@ -14,8 +14,10 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/solid";
 import { IconButton } from "../../atoms";
+import { useModal } from "hooks";
 
 export const MainServiceListSection = () => {
+  const { setIsModalOpen } = useModal();
   return (
     <Container>
       <h3>Service list</h3>
@@ -26,7 +28,7 @@ export const MainServiceListSection = () => {
           </AirdropButton>
           <p>Airdrop</p>
         </IconButtonWithTitle>
-        <IconButtonWithTitle>
+        <IconButtonWithTitle onClick={() => setIsModalOpen(true)}>
           <MultiSimButton>
             <UserGroupIcon fill={"#6881f2"} />
           </MultiSimButton>
@@ -75,6 +77,7 @@ export const MainServiceListSection = () => {
 
 const Container = styled.section`
   margin-top: 28px;
+  z-index: 0;
   h3 {
     margin-bottom: 16px;
   }
