@@ -26,11 +26,12 @@ export const PopupView = () => {
         <GlobalStyle />
         {/* {currentPage === "intro" && <PopupIntroPage />}
         {currentPage === "welcome" && <PopupWelcomePage />}
-        {currentPage === "setup" && <PopupSetupPage />}
-        {currentPage === "main" && <PopupMainPage />} */}
-        <PopupSetupPage />
+        {currentPage === "setup" && <PopupSetupPage />} */}
+        {/* {currentPage === "main" && <PopupMainPage />} */}
+        <PopupMainPage />
       </Main>
       {/* {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />} */}
+      <BottomNav />
     </>
   );
 };

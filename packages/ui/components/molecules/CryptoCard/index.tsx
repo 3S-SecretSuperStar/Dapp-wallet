@@ -7,15 +7,8 @@ import { CardBack } from "./CardBack";
 
 export const CryptoCard: React.FC<{
   blockchain?: Blockchain;
-  onClickLeft: () => void;
-  onClickRight: () => void;
   publicKey?: string;
-}> = ({
-  blockchain = "eth",
-  onClickRight,
-  onClickLeft,
-  publicKey = DUMMY_PUB_KEY,
-}) => {
+}> = ({ blockchain = "eth", publicKey = DUMMY_PUB_KEY }) => {
   const [flip, setFlip] = useState<"front" | "back">("front");
   const toggleFlip = () => setFlip(flip === "front" ? "back" : "front");
   return (
@@ -28,8 +21,6 @@ export const CryptoCard: React.FC<{
           toggleFlip={toggleFlip}
         />
       </Inner>
-      <LeftClickArea onClick={onClickLeft} />
-      <RightClickArea onClick={onClickRight} />
       <CenterClickArea onClick={toggleFlip} flip={flip} />
     </Container>
   );
@@ -52,26 +43,6 @@ const Inner = styled.div<{ flip: "front" | "back" }>`
     props.flip === "front" ? `rotateY(0deg)` : `rotateY(180deg)`};
   transform-style: preserve-3d;
   transition: transform 0.5s ease-in-out;
-`;
-
-const LeftClickArea = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 52px;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
-`;
-
-const RightClickArea = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 52px;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
 `;
 
 const CenterClickArea = styled.div<{ flip: "front" | "back" }>`

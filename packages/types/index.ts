@@ -11,3 +11,9 @@ export interface CryptoWallet {
   blockchain: Blockchain;
   accounts: CryptoKeypair[];
 }
+
+export interface UserInfo {
+  wallets: CryptoWallet[];
+  password: string;
+  username: string;
+}
