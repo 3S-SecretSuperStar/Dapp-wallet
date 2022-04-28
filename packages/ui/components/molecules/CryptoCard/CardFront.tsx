@@ -41,12 +41,12 @@ const Front = styled.div<{ blockchain: Blockchain }>`
 
 const FrontHeader = styled.div`
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 12px 0px 8px 12px;
-  width: 80%;
+  width: 85%;
   button {
     color: var(--bright);
     opacity: 0.7;

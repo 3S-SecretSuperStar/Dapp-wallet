@@ -9,6 +9,7 @@ import {
   PopupWelcomePage,
 } from "ui/components/templates";
 import { BottomNav } from "ui/components/molecules";
+import { storageUserInfo } from "../../../../packages/ui/node_modules/storage";
 
 const bottomNavDisplayingPages: PopupPage[] = [
   "main",
@@ -20,20 +21,26 @@ const bottomNavDisplayingPages: PopupPage[] = [
 
 export const PopupView = () => {
   const { currentPage, setCurrentPage } = usePopupPage();
+  const { getUserInfo } = storageUserInfo;
+
   useEffect(() => {
-    setCurrentPage("welcome");
+    getUserInfo().then((userInfo) => {
+      userInfo.wallets.length < 1
+        ? setCurrentPage("intro")
+        : setCurrentPage("main");
+    });
   }, []);
+
   return (
     <>
       <Main>
         <GlobalStyle />
-        {/* {currentPage === "intro" && <PopupIntroPage />} */}
+        {currentPage === "intro" && <PopupIntroPage />}
         {currentPage === "welcome" && <PopupWelcomePage />}
         {currentPage === "setup" && <PopupSetupPage />}
         {currentPage === "main" && <PopupMainPage />}
       </Main>
       {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
-      {/* <BottomNav /> */}
     </>
   );
 };

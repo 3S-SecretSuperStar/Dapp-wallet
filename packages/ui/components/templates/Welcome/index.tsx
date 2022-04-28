@@ -11,7 +11,7 @@ export const PopupWelcomePage = () => {
     <Container>
       <WelcomeImage src="/images/Welcome/welcome.svg" alt="welcome image" />
       <WelcomeTitleSection>
-        <img src="/images/common/logo.svg" alt="Pengwyn Logo" />
+        <img src="/images/common/logo.svg" alt="Logo" />
         <h1>{BRAND}</h1>
         <GradientH3>Welcome back, we missed you.</GradientH3>
       </WelcomeTitleSection>

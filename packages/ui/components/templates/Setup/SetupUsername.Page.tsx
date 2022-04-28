@@ -10,6 +10,7 @@ import {
 } from "../../organisms/Setup";
 import { storageUserInfo } from "storage";
 import { CryptoWallet } from "types";
+import { BRAND } from "utils/contants";
 
 export const SetupUsernamePage = () => {
   const { setCurrentPage } = useSetupPage();
@@ -46,7 +47,7 @@ export const SetupUsernamePage = () => {
       <SetupUsernamePageTitleSection />
       <SetupUsernamePageInputSection />
       <StartButton onClick={onClickStart}>
-        <h3>Start Pengwyn</h3>
+        <h3>Start {BRAND}</h3>
       </StartButton>
     </SetupPageContainer>
   );
