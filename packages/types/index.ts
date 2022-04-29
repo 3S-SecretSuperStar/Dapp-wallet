@@ -1,5 +1,10 @@
 export type Blockchain = "eth" | "sol";
 
+export interface ColorSet {
+  bg: string;
+  fg: string;
+}
+
 export interface CryptoKeypair {
   pathIndex: number;
   publicKey: string;
@@ -22,7 +27,7 @@ export interface UserInfo {
 
 export interface TestWallet {
   publicKey: string;
-  privateKey: string;
   nickname: string;
   avatar: string;
+  colorSet: ColorSet;
 }

@@ -22,7 +22,7 @@ export const CryptoCardEmpty: React.FC<{
   return (
     <Container>
       <NoAccount>No {cryptoName} account found.</NoAccount>
-      <AddButton onClick={onClickAddAccount}>Add +</AddButton>
+      <AddButton onClick={onClickAddAccount}>Add {cryptoName}</AddButton>
     </Container>
   );
 };
@@ -35,7 +35,6 @@ const Container = styled.div`
   justify-content: center;
   gap: 24px;
   padding-top: 12px;
-  padding-left: 12px;
   min-width: 240px;
   max-width: 240px;
   max-height: 160px;
@@ -50,7 +49,7 @@ const NoAccount = styled.h4`
 
 const AddButton = styled(Button)`
   && {
-    background-color: var(--dark);
+    background-color: var(--darkGrey);
     color: var(--white);
   }
 `;

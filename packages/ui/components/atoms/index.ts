@@ -1,4 +1,5 @@
-export { Avatar } from "./Avatar";
+export * from "./Avatar";
+export * from "./Typography";
 export { ModalPageContainer } from "./ModalPageContainer";
 export { Warning } from "./Warning";
 export { Button, NextButton } from "./Button";

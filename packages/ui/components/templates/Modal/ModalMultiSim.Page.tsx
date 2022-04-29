@@ -4,8 +4,7 @@ import { MultiSimTestUsersSection } from "../../organisms/MultiSim";
 
 export const ModalMultiSimPage = () => {
   return (
-    <ModalPageContainer>
-      <h1>Multi-Sim</h1>
+    <ModalPageContainer pageTitle="Multi-Sim">
       <MultiSimTestUsersSection />
     </ModalPageContainer>
   );

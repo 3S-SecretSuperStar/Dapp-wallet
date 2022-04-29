@@ -5,19 +5,22 @@ import { useModalPage } from "hooks";
 
 type ModalHeight = "full" | "tall" | "half" | "small";
 
-export const ModalPageContainer: React.FC<{ modalHeight?: ModalHeight }> = ({
-  children,
-  modalHeight = "full",
-}) => {
+export const ModalPageContainer: React.FC<{
+  modalHeight?: ModalHeight;
+  pageTitle?: string;
+}> = ({ children, pageTitle = "", modalHeight = "full" }) => {
   const { setModalOpen } = useModalPage();
 
   return (
     <>
       <Background onClick={() => setModalOpen(false)} />
       <Container modalHeight={modalHeight}>
-        <XButton onClick={() => setModalOpen(false)}>
-          <XIcon />
-        </XButton>
+        <Header>
+          <button onClick={() => setModalOpen(false)}>
+            <XIcon />
+          </button>
+          {pageTitle.length > 0 && <h1>{pageTitle}</h1>}
+        </Header>
         <Contents>{children}</Contents>
       </Container>
     </>
@@ -39,7 +42,7 @@ const Container = styled.div<{
   modalHeight: ModalHeight;
 }>`
   position: fixed;
-  z-index: 55;
+  z-index: 51;
   background-color: var(--white);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 22px;
@@ -71,19 +74,36 @@ const Container = styled.div<{
 
 const Contents = styled.div`
   position: relative;
-  margin: 36px 16px 64px 16px;
+  z-index: 52;
+  margin: 84px 16px 64px 16px;
   width: auto;
   height: auto;
 `;
 
-const XButton = styled.button`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  svg {
-    fill: var(--black);
-    width: 16px;
-    height: 16px;
-    stroke-width: 3px;
+const Header = styled.header`
+  position: fixed;
+  z-index: 53;
+  height: 72px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  border-radius: 30px 30px 0px 0px;
+  h1 {
+    margin-top: 12px;
+    margin-left: 16px;
+    text-align: left;
+  }
+  button {
+    margin-right: 16px;
+    margin-bottom: 12px;
+    svg {
+      fill: var(--black);
+      width: 16px;
+      height: 16px;
+      stroke-width: 3px;
+    }
   }
 `;
