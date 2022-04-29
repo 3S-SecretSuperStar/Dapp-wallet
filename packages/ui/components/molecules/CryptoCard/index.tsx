@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { DUMMY_PUB_KEY } from "utils/contants";
-import { CardFront } from "./CardFront";
 import { Blockchain } from "types";
-import { CardBack } from "./CardBack";
+import { CryptoCardFront } from "./CryptoCardFront";
+import { CryptoCardBack } from "./CryptoCardBack";
 
 export const CryptoCard: React.FC<{
   blockchain?: Blockchain;
@@ -14,8 +14,8 @@ export const CryptoCard: React.FC<{
   return (
     <Container>
       <Inner flip={flip}>
-        <CardFront blockchain={blockchain} publicKey={publicKey} />
-        <CardBack
+        <CryptoCardFront blockchain={blockchain} publicKey={publicKey} />
+        <CryptoCardBack
           blockchain={blockchain}
           publicKey={publicKey}
           toggleFlip={toggleFlip}

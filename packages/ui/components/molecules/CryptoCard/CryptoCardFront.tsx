@@ -1,10 +1,10 @@
 import { Blockchain } from "types";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { abbrevPublicKey } from "utils/account";
-import { BigCircle, SmallCircle } from "./CardCommon";
+import { BigCircle, SmallCircle } from "./CryptoCardCommon";
 
-export const CardFront: React.FC<{
+export const CryptoCardFront: React.FC<{
   blockchain: Blockchain;
   publicKey: string;
 }> = ({ blockchain, publicKey }) => {
@@ -33,7 +33,7 @@ const Front = styled.div<{ blockchain: Blockchain }>`
   justify-content: start;
   backface-visibility: hidden;
   background-color: ${(props) =>
-    props.blockchain === "eth" ? "var(--primary)" : "var(--dark)"};
+    props.blockchain === "eth" ? "var(--purple)" : "var(--dark)"};
   border-radius: 20px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -48,7 +48,7 @@ const FrontHeader = styled.div`
   margin: 12px 0px 8px 12px;
   width: 85%;
   button {
-    color: var(--bright);
+    color: var(--white);
     opacity: 0.7;
     transition: opacity 0.4s linear;
     :hover {
@@ -56,18 +56,18 @@ const FrontHeader = styled.div`
     }
   }
   p {
-    color: var(--bright);
+    color: var(--white);
     opacity: 0.7;
     font-style: italic;
   }
 `;
 
 const BalanceAmount = styled.h1`
-  color: var(--bright);
+  color: var(--white);
   font-size: 32px;
   margin-left: 12px;
   span {
-    color: var(--bright);
+    color: var(--white);
     opacity: 50%;
     font-size: 16px;
     font-weight: 600;

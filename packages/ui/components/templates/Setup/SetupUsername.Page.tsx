@@ -46,16 +46,14 @@ export const SetupUsernamePage = () => {
       </SetupPageTopButtonBar>
       <SetupUsernamePageTitleSection />
       <SetupUsernamePageInputSection />
-      <StartButton onClick={onClickStart}>
-        <h3>Start {BRAND}</h3>
-      </StartButton>
+      <StartButton onClick={onClickStart}>Start {BRAND}</StartButton>
     </SetupPageContainer>
   );
 };
 
 const StartButton = styled(Button)`
-  background-image: var(--primary-gradient);
+  background-image: linear-gradient(45deg, var(--gradient-cosmos));
   * {
-    color: white;
+    color: var(--white);
   }
 `;

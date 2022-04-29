@@ -1,4 +1,4 @@
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 import React from "react";
 
@@ -11,9 +11,9 @@ export const SetupImportPageTitleSection = () => {
         <br />
         Crypto Wallet
       </h1>
-      <GradientH3>
+      <GradientH4>
         Type in your wallet seed words. It should be 12-word sequence.
-      </GradientH3>
+      </GradientH4>
     </TitleSection>
   );
 };

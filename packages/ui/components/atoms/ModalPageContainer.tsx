@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { XIcon } from "@heroicons/react/outline";
-import { useModal } from "hooks";
+import { useModalPage } from "hooks";
 
 type ModalHeight = "full" | "tall" | "half" | "small";
 
@@ -9,13 +9,13 @@ export const ModalPageContainer: React.FC<{ modalHeight?: ModalHeight }> = ({
   children,
   modalHeight = "full",
 }) => {
-  const { setIsModalOpen } = useModal();
+  const { setModalOpen } = useModalPage();
 
   return (
     <>
-      <Background onClick={() => setIsModalOpen(false)} />
+      <Background onClick={() => setModalOpen(false)} />
       <Container modalHeight={modalHeight}>
-        <XButton onClick={() => setIsModalOpen(false)}>
+        <XButton onClick={() => setModalOpen(false)}>
           <XIcon />
         </XButton>
         <Contents>{children}</Contents>
@@ -40,7 +40,7 @@ const Container = styled.div<{
 }>`
   position: fixed;
   z-index: 55;
-  background-color: var(--bright);
+  background-color: var(--white);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 22px;
   display: flex;
@@ -61,13 +61,19 @@ const Container = styled.div<{
         return "75%";
     }
   }};
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const Contents = styled.div`
   position: relative;
-  margin: 36px 16px 0px 16px;
+  margin: 36px 16px 64px 16px;
   width: auto;
-  height: 100%;
+  height: auto;
 `;
 
 const XButton = styled.button`

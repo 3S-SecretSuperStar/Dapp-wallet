@@ -63,9 +63,9 @@ const NormalIconButton = styled(IconButton)<{ selected: boolean }>`
 `;
 
 const QRCodeIconButton = styled(IconButton)`
-  background-color: var(--primary);
-  box-shadow: 0px 1px 5px var(--primary);
+  background-color: var(--purple);
+  box-shadow: 0px 1px 5px var(--purple);
   svg {
-    fill: var(--bright);
+    fill: var(--white);
   }
 `;

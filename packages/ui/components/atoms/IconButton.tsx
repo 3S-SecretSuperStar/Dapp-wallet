@@ -9,7 +9,7 @@ export const IconButton = styled.button<IconButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: 14px;
-  background-color: var(--bright);
+  background-color: var(--white);
   ${(props) => (props.size === "small" ? SizeSmall : SizeRegular)}
   :hover {
     svg {

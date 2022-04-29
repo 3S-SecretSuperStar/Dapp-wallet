@@ -1,3 +1,4 @@
+export { TestUserItem } from "./TestUserItem";
 export { CryptoCardEmpty } from "./CryptoCardEmpty";
 export { BottomNav } from "./BottomNav";
 export { TitleSection } from "./TitleSection";

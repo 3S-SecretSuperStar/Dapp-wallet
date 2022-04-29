@@ -1,7 +1,6 @@
 import create from "zustand";
 
 export type PopupPage =
-  | "intro"
   | "welcome"
   | "setup"
   | "main"
@@ -18,6 +17,6 @@ interface UsePopupPageProps {
 }
 
 export const usePopupPage = create<UsePopupPageProps>((set) => ({
-  currentPage: "intro",
+  currentPage: "welcome",
   setCurrentPage: (page: PopupPage) => set((_state) => ({ currentPage: page })),
 }));

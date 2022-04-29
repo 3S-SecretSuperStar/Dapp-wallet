@@ -1,5 +1,5 @@
 import React from "react";
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
 export const SetupBlockchainPageTitleSection = () => {
@@ -11,9 +11,9 @@ export const SetupBlockchainPageTitleSection = () => {
         <br />
         your blockchain
       </h1>
-      <GradientH3>
+      <GradientH4>
         More blockchains will be supported in near future!
-      </GradientH3>
+      </GradientH4>
     </TitleSection>
   );
 };

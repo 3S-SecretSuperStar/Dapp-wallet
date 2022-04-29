@@ -1,5 +1,5 @@
 import React from "react";
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
 export const SetupPasswordPageTitleSection = () => {
@@ -11,7 +11,7 @@ export const SetupPasswordPageTitleSection = () => {
         <br />
         New Password
       </h1>
-      <GradientH3>Setup your password. Pick a safe one!</GradientH3>
+      <GradientH4>Setup your password. Pick a safe one!</GradientH4>
     </TitleSection>
   );
 };

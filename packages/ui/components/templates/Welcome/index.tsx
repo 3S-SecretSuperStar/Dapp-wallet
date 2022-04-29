@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NextButton, ColumnFlexContainer, GradientH3 } from "../../atoms";
+import { NextButton, ColumnFlexContainer, GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 import { usePopupPage } from "hooks";
 import { BRAND } from "utils/contants";
@@ -13,7 +13,7 @@ export const PopupWelcomePage = () => {
       <WelcomeTitleSection>
         <img src="/images/common/logo.svg" alt="Logo" />
         <h1>{BRAND}</h1>
-        <GradientH3>Welcome back, we missed you.</GradientH3>
+        <GradientH4>Welcome back, we missed you.</GradientH4>
       </WelcomeTitleSection>
       <NextButton onClick={() => setCurrentPage("setup")}>
         Get Started
@@ -31,8 +31,8 @@ const WelcomeImage = styled.img`
   width: 80%;
   height: 250px;
   object-fit: contain;
-  filter: drop-shadow(5px 0px var(--primary)) drop-shadow(6px 0px var(--strong))
-    drop-shadow(7px 0px var(--confirm));
+  filter: drop-shadow(5px 0px var(--purple)) drop-shadow(6px 0px var(--orange))
+    drop-shadow(7px 0px var(--green));
 `;
 
 const WelcomeTitleSection = styled(TitleSection)`
@@ -43,6 +43,6 @@ const WelcomeTitleSection = styled(TitleSection)`
     object-fit: contain;
   }
   h1 {
-    color: var(--bright);
+    color: var(--white);
   }
 `;

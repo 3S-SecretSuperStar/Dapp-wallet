@@ -1,4 +1,4 @@
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
 export const SetupChooseAddressPageTitleSection = () => {
@@ -10,9 +10,9 @@ export const SetupChooseAddressPageTitleSection = () => {
         <br />
         Crypto Wallet
       </h1>
-      <GradientH3>
+      <GradientH4>
         Choose the wallet address that you would mainly use.
-      </GradientH3>
+      </GradientH4>
     </TitleSection>
   );
 };

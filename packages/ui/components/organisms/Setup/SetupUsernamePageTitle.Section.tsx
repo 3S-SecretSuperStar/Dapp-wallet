@@ -1,4 +1,4 @@
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
 export const SetupUsernamePageTitleSection = () => {
@@ -10,7 +10,7 @@ export const SetupUsernamePageTitleSection = () => {
         <br />
         Username
       </h1>
-      <GradientH3>Last step! We need your name to call you.</GradientH3>
+      <GradientH4>Last step! We need your name to call you.</GradientH4>
     </TitleSection>
   );
 };

@@ -35,7 +35,7 @@ const ChoiceButton = styled(Button)<{ selected: boolean }>`
   && {
     background-color: ${(props) =>
       props.selected ? `var(--dark)` : "transparent"};
-    color: ${(props) => (props.selected ? `var(--bright)` : `var(--dark)`)};
+    color: ${(props) => (props.selected ? `var(--white)` : `var(--dark)`)};
   }
   border: 2px solid var(--dark);
   font-weight: 600;

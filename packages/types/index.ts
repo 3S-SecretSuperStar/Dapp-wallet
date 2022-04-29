@@ -19,3 +19,10 @@ export interface UserInfo {
   password: string;
   username: string;
 }
+
+export interface TestWallet {
+  publicKey: string;
+  privateKey: string;
+  nickname: string;
+  avatar: string;
+}

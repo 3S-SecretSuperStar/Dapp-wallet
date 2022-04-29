@@ -1,4 +1,5 @@
 import * as bip39 from "bip39";
+import * as bs58 from "bs58";
 import * as SOL from "@solana/web3.js";
 import * as ETH from "ethers";
 import { derivePath } from "ed25519-hd-key";
@@ -17,8 +18,8 @@ export const isMnemonicValid = bip39.validateMnemonic;
 /**
  * Creates range array from start to end index
  *
- * @param start
- * @param end
+ * @param start - Start index of the range
+ * @param end - End index of the range
  * @returns (end - start) length range array
  */
 const range = (start: number, end: number) =>
@@ -88,7 +89,7 @@ export const deriveCryptoKeypair = (
       return {
         pathIndex,
         publicKey: publicKey.toBase58(),
-        privateKey: new TextDecoder().decode(secretKey),
+        privateKey: bs58.encode(secretKey),
       };
   }
 };

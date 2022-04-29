@@ -14,10 +14,10 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/solid";
 import { IconButton } from "../../atoms";
-import { useModal } from "hooks";
+import { useModalPage } from "hooks";
 
 export const MainServiceListSection = () => {
-  const { setIsModalOpen } = useModal();
+  const { setModalOpen, setModalPage, modalPage } = useModalPage();
   return (
     <Container>
       <h3>Service list</h3>
@@ -28,7 +28,12 @@ export const MainServiceListSection = () => {
           </AirdropButton>
           <p>Airdrop</p>
         </IconButtonWithTitle>
-        <IconButtonWithTitle onClick={() => setIsModalOpen(true)}>
+        <IconButtonWithTitle
+          onClick={() => {
+            setModalOpen(true);
+            setModalPage("multisim");
+          }}
+        >
           <MultiSimButton>
             <UserGroupIcon fill={"#6881f2"} />
           </MultiSimButton>

@@ -1,15 +1,11 @@
-import { ArrowRightIcon } from "@heroicons/react/outline";
 import React, { ButtonHTMLAttributes } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ArrowRightIcon } from "@heroicons/react/outline";
 
-export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+export const NextButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   ...props
 }) => {
-  return <ButtonStyle {...props}>{children}</ButtonStyle>;
-};
-
-export const NextButton: typeof Button = ({ children, ...props }) => {
   return (
     <Button {...props}>
       <p>{children}</p>
@@ -18,22 +14,36 @@ export const NextButton: typeof Button = ({ children, ...props }) => {
   );
 };
 
-const ButtonStyle = styled.button`
+interface ButtonProps {
+  size?: "regular" | "small";
+}
+
+export const Button = styled.button<ButtonProps>`
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 6px;
-  background-color: var(--primary);
+  background-color: var(--purple);
   border-radius: 16px;
+  opacity: 1;
+  color: var(--white);
+  * {
+    color: var(--white);
+  }
+  :disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+  ${(props) => (props.size === "small" ? SizeSmall : SizeRegular)}
+`;
+
+const SizeRegular = css`
+  gap: 6px;
   height: 40px;
   min-width: 120px;
   padding-left: 32px;
   padding-right: 32px;
-  opacity: 1;
-  * {
-    color: var(--bright);
-  }
+  font-weight: 600;
   p {
     font-weight: 700;
     font-size: 12px;
@@ -44,8 +54,23 @@ const ButtonStyle = styled.button`
     padding: 0px 0px;
     stroke-width: 4px;
   }
-  :disabled {
-    opacity: 0.2;
-    cursor: default;
+`;
+
+const SizeSmall = css`
+  gap: 6px;
+  height: 28px;
+  min-width: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-weight: 500;
+  p {
+    font-weight: 500;
+    font-size: 8px;
+  }
+  svg {
+    width: 8px;
+    height: 8px;
+    padding: 0px 0px;
+    stroke-width: 2px;
   }
 `;

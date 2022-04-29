@@ -1,5 +1,5 @@
 import React from "react";
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 
 export const SetupFirstPageTitleSection = () => {
@@ -11,7 +11,7 @@ export const SetupFirstPageTitleSection = () => {
         <br />
         crypto wallet
       </h1>
-      <GradientH3>Import existing wallet, or create a new one!</GradientH3>
+      <GradientH4>Import existing wallet, or create a new one!</GradientH4>
     </TitleSection>
   );
 };

@@ -1,4 +1,4 @@
-import { GradientH3 } from "../../atoms";
+import { GradientH4 } from "../../atoms";
 import { TitleSection } from "../../molecules";
 import React from "react";
 
@@ -11,9 +11,9 @@ export const SetupCreatePageTitleSection = () => {
         <br />
         crypto wallet
       </h1>
-      <GradientH3>
+      <GradientH4>
         Copy the seed words somewhere safe. Never show anyone!
-      </GradientH3>
+      </GradientH4>
     </TitleSection>
   );
 };

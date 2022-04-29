@@ -4,11 +4,11 @@ import { BookOpenIcon, RefreshIcon } from "@heroicons/react/solid";
 import { Blockchain } from "types";
 import { QRCodeSVG } from "qrcode.react";
 import { IoSendSharp } from "react-icons/io5";
-import { BigCircle, SmallCircle } from "./CardCommon";
+import { BigCircle, SmallCircle } from "./CryptoCardCommon";
 
 const memberHeight = 100;
 
-export const CardBack: React.FC<{
+export const CryptoCardBack: React.FC<{
   blockchain: Blockchain;
   publicKey: string;
   toggleFlip: () => void;
@@ -52,7 +52,7 @@ const Back = styled.div<{ blockchain: Blockchain }>`
   backface-visibility: hidden;
   transform: rotateY(180deg);
   background-color: ${(props) =>
-    props.blockchain === "eth" ? "var(--primary)" : "var(--dark)"};
+    props.blockchain === "eth" ? "var(--purple)" : "var(--dark)"};
   border-radius: 20px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -76,7 +76,7 @@ const QuickMenuItem = styled.button`
   svg {
     width: 20px;
     height: 20px;
-    fill: var(--bright);
+    fill: var(--white);
   }
 `;
 

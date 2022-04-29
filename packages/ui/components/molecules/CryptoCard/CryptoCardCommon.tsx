@@ -7,7 +7,7 @@ export const BigCircle = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  background-color: var(--bright);
+  background-color: var(--white);
   opacity: 0.1;
   z-index: 1;
 `;
@@ -19,7 +19,7 @@ export const SmallCircle = styled.div`
   width: 160px;
   height: 160px;
   border-radius: 100px;
-  background-color: var(--bright);
+  background-color: var(--white);
   opacity: 0.07;
   z-index: 1;
 `;

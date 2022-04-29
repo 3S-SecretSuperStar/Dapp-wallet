@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { GlobalStyle } from "ui/styles/globalStyles";
-import { PopupPage, usePopupPage } from "hooks/usePopupPage";
+import { GlobalStyle } from "ui/styles";
 import {
-  PopupIntroPage,
   PopupMainPage,
+  PopupModalPage,
   PopupSetupPage,
   PopupWelcomePage,
 } from "ui/components/templates";
 import { BottomNav } from "ui/components/molecules";
 import { storageUserInfo } from "storage";
-import { useModal } from "hooks";
-import { ModalPageContainer } from "ui/components/atoms";
+import { useModalPage, usePopupPage } from "hooks";
+import { PopupPage } from "hooks/src/usePopupPage";
 
 const bottomNavDisplayingPages: PopupPage[] = [
   "main",
@@ -24,12 +23,12 @@ const bottomNavDisplayingPages: PopupPage[] = [
 export const PopupView = () => {
   const { currentPage, setCurrentPage } = usePopupPage();
   const { getUserInfo } = storageUserInfo;
-  const { isModalOpen } = useModal();
+  const { modalPage } = useModalPage();
 
   useEffect(() => {
     getUserInfo().then((userInfo) => {
       userInfo.wallets.length < 1
-        ? setCurrentPage("intro")
+        ? setCurrentPage("welcome")
         : setCurrentPage("main");
     });
   }, []);
@@ -38,13 +37,12 @@ export const PopupView = () => {
     <>
       <Main>
         <GlobalStyle />
-        {currentPage === "intro" && <PopupIntroPage />}
         {currentPage === "welcome" && <PopupWelcomePage />}
         {currentPage === "setup" && <PopupSetupPage />}
         {currentPage === "main" && <PopupMainPage />}
       </Main>
       {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
-      {isModalOpen && <ModalPageContainer />}
+      {modalPage.isOpen && <PopupModalPage />}
     </>
   );
 };

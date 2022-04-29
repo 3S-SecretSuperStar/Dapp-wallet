@@ -7,6 +7,7 @@
   "devDependencies": {
     "@solana/web3.js": "^1.39.1",
     "bip39": "^3.0.4",
+    "bs58": "^5.0.0",
     "ed25519-hd-key": "^1.2.0",
     "ethers": "^5.6.4",
     "tsconfig": "workspace:*",
