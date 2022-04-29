@@ -4,6 +4,7 @@ import { DUMMY_PUB_KEY } from "utils/contants";
 import { Blockchain } from "types";
 import { CryptoCardFront } from "./CryptoCardFront";
 import { CryptoCardBack } from "./CryptoCardBack";
+import { CryptoCardFrame } from "./CryptoCardCommon";
 
 export const CryptoCard: React.FC<{
   blockchain?: Blockchain;
@@ -26,13 +27,10 @@ export const CryptoCard: React.FC<{
   );
 };
 
-const Container = styled.div`
-  min-width: 240px;
-  min-height: 160px;
+const Container = styled(CryptoCardFrame)`
   perspective: 1000px;
   background-color: transparent;
   overflow: none;
-  z-index: 10;
 `;
 
 const Inner = styled.div<{ flip: "front" | "back" }>`

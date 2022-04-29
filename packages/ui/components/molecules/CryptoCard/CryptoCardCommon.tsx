@@ -23,3 +23,11 @@ export const SmallCircle = styled.div`
   opacity: 0.07;
   z-index: 1;
 `;
+
+export const CryptoCardFrame = styled.div`
+  min-width: 240px;
+  max-width: 240px;
+  min-height: 160px;
+  max-height: 160px;
+  z-index: 10;
+`;

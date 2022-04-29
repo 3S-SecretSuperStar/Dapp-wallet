@@ -2,7 +2,8 @@ import { usePopupPage, useSetupInfo, useSetupPage } from "hooks";
 import React from "react";
 import styled from "styled-components";
 import { Blockchain } from "types";
-import { Button } from "../atoms";
+import { Button } from "../../atoms";
+import { CryptoCardFrame } from "./CryptoCardCommon";
 
 export const CryptoCardEmpty: React.FC<{
   blockchain: Blockchain;
@@ -27,20 +28,18 @@ export const CryptoCardEmpty: React.FC<{
   );
 };
 
-const Container = styled.div`
+const Container = styled(CryptoCardFrame)`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  padding-top: 12px;
-  min-width: 240px;
-  max-width: 240px;
-  max-height: 160px;
   border-radius: 20px;
   border: 3px dashed var(--lightGrey);
-  z-index: 0;
+  gap: 24px;
+  && {
+    min-height: 0px;
+  }
 `;
 
 const NoAccount = styled.h4`
@@ -49,7 +48,7 @@ const NoAccount = styled.h4`
 
 const AddButton = styled(Button)`
   && {
-    background-color: var(--darkGrey);
+    background-color: var(--green);
     color: var(--white);
   }
 `;

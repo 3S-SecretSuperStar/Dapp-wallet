@@ -1,12 +1,12 @@
 import { css } from "styled-components";
 
 const Solid = css`
-  --purple: #6E54C7;
-  --orange: #F87C58;
-  --green: #98D8BD
-  --pink: #EF6D94;
-  --lightBlue: #7A90F4;
-  --beige: #FFF3E8;
+  --purple: #6e54c7;
+  --orange: #f87c58;
+  --green: #98d8bd;
+  --pink: #ef6d94;
+  --lightBlue: #7a90f4;
+  --beige: #fff3e8;
 `;
 
 const Gradient = css`
