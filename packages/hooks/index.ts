@@ -1,3 +1,4 @@
+export { useMultiSimPage } from "./useMultiSimPage";
 export { useModalPage } from "./src/useModalPage";
 export { usePopupMenu } from "./src/usePopupMenu";
 export { usePopupPage } from "./src/usePopupPage";

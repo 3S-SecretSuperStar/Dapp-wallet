@@ -1,4 +1,4 @@
-import { LocalStorage, LocalStorageKeys } from ".";
+import { LocalStorage, LocalStorageKeys } from "..";
 
 const setFloatPosition = (floatPosition: {
   x: number;

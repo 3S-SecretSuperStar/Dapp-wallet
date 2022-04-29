@@ -1,5 +1,5 @@
 import { UserInfo } from "types";
-import { LocalStorage, LocalStorageKeys } from ".";
+import { LocalStorage, LocalStorageKeys } from "..";
 
 const setUserInfo = (userInfo: UserInfo): Promise<void> => {
   const values: LocalStorage = { userInfo };

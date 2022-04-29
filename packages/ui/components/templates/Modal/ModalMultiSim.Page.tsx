@@ -1,11 +1,17 @@
 import React from "react";
+import { useMultiSimPage } from "hooks";
 import { ModalPageContainer } from "../../atoms";
-import { MultiSimTestUsersSection } from "../../organisms/MultiSim";
+import {
+  MultiSimTabNav,
+  MultiSimTestPeersSection,
+} from "../../organisms/MultiSim";
 
 export const ModalMultiSimPage = () => {
+  const { currentPage } = useMultiSimPage();
   return (
     <ModalPageContainer pageTitle="Multi-Sim">
-      <MultiSimTestUsersSection />
+      <MultiSimTabNav />
+      {currentPage !== "all" && <MultiSimTestPeersSection />}
     </ModalPageContainer>
   );
 };

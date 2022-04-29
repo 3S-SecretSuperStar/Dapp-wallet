@@ -1,1 +1,2 @@
-export { MultiSimTestUsersSection } from "./MultiSimTestUsers.Section";
+export { MultiSimTabNav } from "./MultiSimTabNav.Section";
+export { MultiSimTestPeersSection } from "./MultiSimTestPeers.Section";

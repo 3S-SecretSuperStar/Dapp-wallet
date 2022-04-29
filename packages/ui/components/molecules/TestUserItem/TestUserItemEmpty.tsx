@@ -1,23 +1,34 @@
 import React, { useState } from "react";
+import { storageTestClusters as store } from "storage";
 import styled from "styled-components";
-import { TestWallet } from "types";
+import { Blockchain, TestWallet } from "types";
 import { createRandomWallet, randomAvatar } from "utils/multisim";
 import { AvatarEmpty, Body3, Button } from "../../atoms";
 import { TestUserItemFrame } from "./TestUserItemFrame";
 
 export const TestUserItemEmpty: React.FC<{
   limit: number;
-  peerList: TestWallet[];
-  setPeerList: (peer: TestWallet[]) => void;
-}> = ({ limit, peerList, setPeerList }) => {
+  peers: TestWallet[];
+  setPeers: (peer: TestWallet[]) => void;
+  blockchain: Blockchain;
+}> = ({ limit, peers, setPeers, blockchain }) => {
   const [loading, setLoading] = useState<boolean>(false);
+
   const addPeer = async () => {
     if (limit === 0) return;
     setLoading(true);
-    const wallet = await createRandomWallet("eth");
-    setPeerList([...peerList, wallet]);
+    const wallet = await createRandomWallet(blockchain);
+    const newPeers = [...peers, wallet];
+    if (blockchain === "eth") {
+      await store.setEthTestPeers(newPeers);
+    } else if (blockchain === "sol") {
+      await store.setSolTestPeers(newPeers);
+    } else {
+    }
+    setPeers(newPeers);
     setLoading(false);
   };
+
   return (
     <Container loading={loading}>
       <AvatarEmpty />
