@@ -1,4 +1,4 @@
-export * from "./TestUserItem";
+export * from "./TestPeerItem";
 export * from "./CryptoCard";
 export { BottomNav } from "./BottomNav";
 export { TitleSection } from "./TitleSection";

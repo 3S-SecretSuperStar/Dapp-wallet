@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { Blockchain, TestWallet } from "types";
 import { createRandomWallet, randomAvatar } from "utils/multisim";
 import { AvatarEmpty, Body3, Button } from "../../atoms";
-import { TestUserItemFrame } from "./TestUserItemFrame";
+import { TestPeerItemFrame } from "./TestPeerItemFrame";
 
-export const TestUserItemEmpty: React.FC<{
+export const TestPeerItemEmpty: React.FC<{
   limit: number;
   peers: TestWallet[];
   setPeers: (peer: TestWallet[]) => void;
@@ -43,7 +43,7 @@ export const TestUserItemEmpty: React.FC<{
   );
 };
 
-const Container = styled(TestUserItemFrame)<{ loading: boolean }>`
+const Container = styled(TestPeerItemFrame)<{ loading: boolean }>`
   border: 2px dashed var(--lightGrey);
   opacity: ${(props) => (props.loading ? "0.5" : "1")};
 `;

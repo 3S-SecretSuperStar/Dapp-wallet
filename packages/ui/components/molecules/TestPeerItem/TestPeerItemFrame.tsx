@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TestUserItemFrame = styled.div`
+export const TestPeerItemFrame = styled.div`
   padding: 16px 16px 16px 16px;
   display: flex;
   flex-direction: column;

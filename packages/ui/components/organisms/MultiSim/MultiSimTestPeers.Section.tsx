@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useMultiSimPage } from "hooks";
 import { storageTestClusters as store } from "storage";
 import { TestWallet } from "types";
-import { TestUserItem, TestUserItemEmpty } from "../../molecules";
+import { TestPeerItem, TestPeerItemEmpty } from "../../molecules";
 
 export const MultiSimTestPeersSection = () => {
   const { currentPage } = useMultiSimPage();
@@ -26,10 +26,10 @@ export const MultiSimTestPeersSection = () => {
   return (
     <Container>
       {peers.map((peer) => (
-        <TestUserItem key={peer.publicKey} {...peer} />
+        <TestPeerItem key={peer.publicKey} {...peer} />
       ))}
       {limit > 0 && (
-        <TestUserItemEmpty
+        <TestPeerItemEmpty
           limit={limit}
           peers={peers}
           setPeers={setPeers}
