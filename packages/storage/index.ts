@@ -11,4 +11,4 @@ export interface LocalStorage {
 
 export { storageFloatPosition } from "./src/floatPosition";
 export { storageUserInfo } from "./src/userInfo";
-export { storageTestClusters } from "./src/testClusters";
+export { storageTestPeers } from "./src/testClusters";

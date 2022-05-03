@@ -37,7 +37,7 @@ const getSolTestPeers = (): Promise<TestWallet[]> => {
   });
 };
 
-export const storageTestClusters = {
+export const storageTestPeers = {
   setEthTestPeers,
   getEthTestPeers,
   setSolTestPeers,

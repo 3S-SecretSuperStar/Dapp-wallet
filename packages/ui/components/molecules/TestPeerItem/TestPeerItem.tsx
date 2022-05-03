@@ -1,60 +1,66 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { abbrevPublicKey } from "utils/account";
 import { Avatar, Body3, Button } from "../../atoms";
 import { TestPeerItemFrame } from "./TestPeerItemFrame";
 import { TrashIcon } from "@heroicons/react/solid";
-import { storageTestClusters as store } from "storage";
-import { useMultiSimPage } from "hooks";
+import { storageTestPeers as store } from "storage";
+import { useEthTestPeers, useSolTestPeers } from "hooks";
+import { Blockchain, TestWallet } from "types";
 
 interface TestPeerItemProps {
-  avatar: string;
-  nickname: string;
-  publicKey: string;
-  colorSet: { bg: string; fg: string };
+  peer: TestWallet;
+  blockchain: Blockchain;
 }
 
 export const TestPeerItem: React.FC<TestPeerItemProps> = ({
-  avatar,
-  nickname,
-  publicKey,
-  colorSet,
+  peer,
+  blockchain,
 }) => {
-  const { currentPage } = useMultiSimPage();
-  const deletePeer = async () => {
-    if (currentPage === "eth") {
-      const peers = await store.getEthTestPeers();
-      const filteredPeers = peers.filter(
-        (peer) => peer.publicKey !== publicKey
-      );
-      await store.setEthTestPeers(filteredPeers);
-    } else if (currentPage === "sol") {
-      const peers = await store.getSolTestPeers();
-      const filteredPeers = peers.filter(
-        (peer) => peer.publicKey !== publicKey
-      );
-      await store.setSolTestPeers(filteredPeers);
-    } else {
-      return;
+  const { peers: ethPeers, deletePeer: deleteEthPeer } = useEthTestPeers();
+  const { peers: solPeers, deletePeer: deleteSolPeer } = useSolTestPeers();
+
+  const peers = useMemo(() => {
+    switch (blockchain) {
+      case "eth":
+        return ethPeers;
+      case "sol":
+        return solPeers;
+    }
+  }, [blockchain, ethPeers, solPeers]);
+
+  const deletePeerItem = async () => {
+    const filteredPeers = peers.filter((p) => p.publicKey !== peer.publicKey);
+
+    switch (blockchain) {
+      case "eth":
+        deleteEthPeer(peer);
+        await store.setEthTestPeers(filteredPeers);
+        return;
+      case "sol":
+        deleteSolPeer(peer);
+        await store.setSolTestPeers(filteredPeers);
+        return;
     }
   };
+
   return (
-    <Container bg={colorSet.bg}>
+    <Container bg={peer.colorSet.bg}>
       <Avatar
         size="regular"
-        src={avatar}
-        alt={abbrevPublicKey(publicKey)}
-        fg={colorSet.fg}
+        src={peer.avatar}
+        alt={abbrevPublicKey(peer.publicKey)}
+        fg={peer.colorSet.fg}
       />
       <TextContainer>
-        <h4>{nickname}</h4>
-        <Body3>{abbrevPublicKey(publicKey)}</Body3>
+        <h4>{peer.nickname}</h4>
+        <Body3>{abbrevPublicKey(peer.publicKey)}</Body3>
       </TextContainer>
       <ButtonContainer>
-        <MoreButton size="small" fg={colorSet.fg}>
+        <MoreButton size="small" fg={peer.colorSet.fg}>
           More
         </MoreButton>
-        <DeleteButton bgColor={colorSet.fg} onClick={deletePeer}>
+        <DeleteButton bgColor={peer.colorSet.fg} onClick={deletePeerItem}>
           <TrashIcon />
         </DeleteButton>
       </ButtonContainer>

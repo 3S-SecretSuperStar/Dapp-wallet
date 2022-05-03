@@ -1,31 +1,47 @@
-import React, { useState } from "react";
-import { storageTestClusters as store } from "storage";
+import { useEthTestPeers, useSolTestPeers } from "hooks";
+import React, { useMemo, useState } from "react";
+import { storageTestPeers as store } from "storage";
 import styled from "styled-components";
-import { Blockchain, TestWallet } from "types";
-import { createRandomWallet, randomAvatar } from "utils/multisim";
+import { Blockchain } from "types";
+import { createRandomWallet } from "utils/multisim";
 import { AvatarEmpty, Body3, Button } from "../../atoms";
 import { TestPeerItemFrame } from "./TestPeerItemFrame";
 
 export const TestPeerItemEmpty: React.FC<{
   limit: number;
-  peers: TestWallet[];
-  setPeers: (peer: TestWallet[]) => void;
   blockchain: Blockchain;
-}> = ({ limit, peers, setPeers, blockchain }) => {
+}> = ({ limit, blockchain }) => {
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { peers: ethPeers, addPeer: addEthPeer } = useEthTestPeers();
+  const { peers: solPeers, addPeer: addSolPeer } = useSolTestPeers();
+
+  const peers = useMemo(() => {
+    switch (blockchain) {
+      case "eth":
+        return ethPeers;
+      case "sol":
+        return solPeers;
+    }
+  }, [blockchain, ethPeers, solPeers]);
 
   const addPeer = async () => {
     if (limit === 0) return;
+
     setLoading(true);
-    const wallet = await createRandomWallet(blockchain);
-    const newPeers = [...peers, wallet];
-    if (blockchain === "eth") {
-      await store.setEthTestPeers(newPeers);
-    } else if (blockchain === "sol") {
-      await store.setSolTestPeers(newPeers);
-    } else {
+
+    const newPeer = await createRandomWallet(blockchain);
+    switch (blockchain) {
+      case "eth":
+        addEthPeer(newPeer);
+        await store.setEthTestPeers([...peers, newPeer]);
+        break;
+      case "sol":
+        addSolPeer(newPeer);
+        await store.setSolTestPeers([...peers, newPeer]);
+        break;
     }
-    setPeers(newPeers);
+
     setLoading(false);
   };
 
