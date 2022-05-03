@@ -22,3 +22,13 @@ export const useModalPage = create<UseModalPageProps>((set) => ({
   setModalPage: (page) =>
     set((state) => ({ modalPage: { ...state.modalPage, page } })),
 }));
+
+interface UseHigherModalPageProps {
+  isOpen: boolean;
+  setOpen: (isOpen: boolean) => void;
+}
+
+export const useHigherModalPage = create<UseHigherModalPageProps>((set) => ({
+  isOpen: false,
+  setOpen: (isOpen) => set((_state) => ({ isOpen })),
+}));

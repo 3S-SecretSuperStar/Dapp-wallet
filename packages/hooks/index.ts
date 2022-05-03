@@ -1,7 +1,8 @@
-export { useMultiSimPage } from "./useMultiSimPage";
-export { useModalPage } from "./src/useModalPage";
-export { usePopupMenu } from "./src/usePopupMenu";
-export { usePopupPage } from "./src/usePopupPage";
-export { useSetupInfo } from "./src/useSetupInfo";
-export { useSetupPage } from "./src/useSetupPage";
+export * from "./useMultiSimPage";
+export * from "./src/usePopupMenu";
+export * from "./src/usePopupPage";
+export * from "./src/useSetupInfo";
+export * from "./src/useSetupPage";
 export * from "./src/useTestPeers";
+export * from "./src/useModalPage";
+export * from "./src/useInspectPeer";

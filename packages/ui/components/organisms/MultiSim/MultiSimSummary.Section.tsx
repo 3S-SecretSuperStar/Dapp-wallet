@@ -46,7 +46,7 @@ const Avatars = styled.div`
   margin-top: 16px;
   display: grid;
   column-gap: 8px;
-  row-gap: 8px;
+  row-gap: 12px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 `;
 

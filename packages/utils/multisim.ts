@@ -1,7 +1,6 @@
 import * as ETH from "ethers";
 import * as SOL from "@solana/web3.js";
-import * as bs58 from "bs58";
-import { Blockchain, ColorSet, TestWallet } from "types";
+import { Blockchain, TestWallet } from "types";
 import { BgFgColors, ShortNames } from "./contants";
 
 /**

@@ -1,3 +1,4 @@
-export { MultiSimSummarySection } from "./MultiSimSummary.Section";
-export { MultiSimTabNav } from "./MultiSimTabNav.Section";
-export { MultiSimTestPeersSection } from "./MultiSimTestPeers.Section";
+export * from "./MultiSimEditPeer.Section";
+export * from "./MultiSimSummary.Section";
+export * from "./MultiSimTabNav.Section";
+export * from "./MultiSimTestPeers.Section";

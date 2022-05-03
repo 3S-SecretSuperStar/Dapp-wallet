@@ -5,6 +5,8 @@ import * as ETH from "ethers";
 import { derivePath } from "ed25519-hd-key";
 import { Blockchain, CryptoKeypair, CryptoWallet } from "types";
 
+// TODO: Make a chain name function by chain type
+
 /**
  * Generates 12-words long mnemonic words.
  */

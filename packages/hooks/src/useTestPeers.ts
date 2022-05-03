@@ -1,14 +1,5 @@
-import { Blockchain, TestWallet } from "types";
+import { TestWallet } from "types";
 import create from "zustand";
-
-export type ModalPage =
-  | "airdrop"
-  | "multisim"
-  | "mobile"
-  | "message"
-  | "contact"
-  | "network"
-  | "compass";
 
 interface UseTestPeersProps {
   peers: TestWallet[];

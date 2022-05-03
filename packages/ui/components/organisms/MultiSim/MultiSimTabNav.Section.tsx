@@ -1,6 +1,6 @@
-import { useMultiSimPage } from "hooks";
 import React from "react";
 import styled from "styled-components";
+import { useMultiSimPage } from "hooks";
 import { Tabs } from "../../molecules";
 
 export const MultiSimTabNav = () => {

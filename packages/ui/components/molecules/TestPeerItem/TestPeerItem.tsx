@@ -5,7 +5,12 @@ import { Avatar, Body3, Button } from "../../atoms";
 import { TestPeerItemFrame } from "./TestPeerItemFrame";
 import { TrashIcon } from "@heroicons/react/solid";
 import { storageTestPeers as store } from "storage";
-import { useEthTestPeers, useSolTestPeers } from "hooks";
+import {
+  useEthTestPeers,
+  useHigherModalPage,
+  useInspectPeer,
+  useSolTestPeers,
+} from "hooks";
 import { Blockchain, TestWallet } from "types";
 
 interface TestPeerItemProps {
@@ -19,6 +24,8 @@ export const TestPeerItem: React.FC<TestPeerItemProps> = ({
 }) => {
   const { peers: ethPeers, deletePeer: deleteEthPeer } = useEthTestPeers();
   const { peers: solPeers, deletePeer: deleteSolPeer } = useSolTestPeers();
+  const { setOpen } = useHigherModalPage();
+  const { setPeer } = useInspectPeer();
 
   const peers = useMemo(() => {
     switch (blockchain) {
@@ -44,6 +51,11 @@ export const TestPeerItem: React.FC<TestPeerItemProps> = ({
     }
   };
 
+  const inspectPeer = () => {
+    setOpen(true);
+    setPeer({ peerInfo: peer, blockchain });
+  };
+
   return (
     <Container bg={peer.colorSet.bg}>
       <Avatar
@@ -57,7 +69,7 @@ export const TestPeerItem: React.FC<TestPeerItemProps> = ({
         <Body3>{abbrevPublicKey(peer.publicKey)}</Body3>
       </TextContainer>
       <ButtonContainer>
-        <MoreButton size="small" fg={peer.colorSet.fg}>
+        <MoreButton size="small" fg={peer.colorSet.fg} onClick={inspectPeer}>
           More
         </MoreButton>
         <DeleteButton bgColor={peer.colorSet.fg} onClick={deletePeerItem}>

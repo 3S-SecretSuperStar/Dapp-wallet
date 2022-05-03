@@ -25,6 +25,21 @@ export const BgFgColors: ColorSet[] = [
   { bg: "#FFF8FA", fg: "linear-gradient(225deg, #FFA7C7 0%, #FF69A0 100%)" },
   { bg: "#EBFFF1", fg: "linear-gradient(225deg, #C2FFCF 0%, #57D589 100%)" },
 ];
+/**
+ * Avatar images
+ */
+export const AvatarImages: string[] = [
+  "/images/avatars/0.png",
+  "/images/avatars/1.png",
+  "/images/avatars/2.png",
+  "/images/avatars/3.png",
+  "/images/avatars/4.png",
+  "/images/avatars/5.png",
+  "/images/avatars/6.png",
+  "/images/avatars/7.png",
+  "/images/avatars/8.png",
+  "/images/avatars/9.png",
+];
 
 /**
  * Short names
