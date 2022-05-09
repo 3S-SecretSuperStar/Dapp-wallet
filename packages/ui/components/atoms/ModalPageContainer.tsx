@@ -2,18 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import { XIcon } from "@heroicons/react/outline";
 import { useHigherModalPage, useModalPage } from "hooks";
+import { Tabs, TabsProps } from "../molecules";
 
 type ModalHeight = "full" | "tall" | "half" | "small";
 
 interface ModalPageContainerProps {
   modalHeight?: ModalHeight;
   pageTitle?: string;
+  tabsProps?: TabsProps;
 }
 
 export const ModalPageContainer: React.FC<ModalPageContainerProps> = ({
   children,
   pageTitle = "",
   modalHeight = "full",
+  tabsProps = { tabItems: [], currentPage: "" },
 }) => {
   const { setModalOpen } = useModalPage();
 
@@ -22,10 +25,17 @@ export const ModalPageContainer: React.FC<ModalPageContainerProps> = ({
       <Background onClick={() => setModalOpen(false)} />
       <Container modalHeight={modalHeight}>
         <Header>
-          <button onClick={() => setModalOpen(false)}>
-            <XIcon />
-          </button>
-          {pageTitle.length > 0 && <h1>{pageTitle}</h1>}
+          <TitleAndClose>
+            <button onClick={() => setModalOpen(false)}>
+              <XIcon />
+            </button>
+            {pageTitle.length > 0 && <h1>{pageTitle}</h1>}
+          </TitleAndClose>
+          {tabsProps.currentPage !== "" && (
+            <Nav>
+              <Tabs {...tabsProps} />
+            </Nav>
+          )}
         </Header>
         <Contents modalHeight={modalHeight}>{children}</Contents>
       </Container>
@@ -37,6 +47,7 @@ export const HigherModalPageContainer: React.FC<ModalPageContainerProps> = ({
   children,
   pageTitle = "",
   modalHeight = "half",
+  tabsProps = { tabItems: [], currentPage: "" },
 }) => {
   const { setOpen } = useHigherModalPage();
   return (
@@ -44,10 +55,17 @@ export const HigherModalPageContainer: React.FC<ModalPageContainerProps> = ({
       <Background higher onClick={() => setOpen(false)} />
       <Container higher modalHeight={modalHeight}>
         <Header higher>
-          <button onClick={() => setOpen(false)}>
-            <XIcon />
-          </button>
-          {pageTitle.length > 0 && <h2>{pageTitle}</h2>}
+          <TitleAndClose>
+            <button onClick={() => setOpen(false)}>
+              <XIcon />
+            </button>
+            {pageTitle.length > 0 && <h2>{pageTitle}</h2>}
+          </TitleAndClose>
+          {tabsProps.currentPage !== "" && (
+            <Nav>
+              <Tabs {...tabsProps} />
+            </Nav>
+          )}
         </Header>
         <Contents modalHeight={modalHeight} higher>
           {children}
@@ -73,26 +91,25 @@ const Container = styled.div<{
   higher?: boolean;
 }>`
   position: fixed;
+  bottom: 0;
+  left: 0;
   z-index: ${(props) => (props.higher ? "55" : "51")};
   background-color: var(--white);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
-  border-radius: 22px;
+  border-radius: 22px 22px 0px 0px;
   display: flex;
   flex-direction: column;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  margin-top: ${(props) => {
+  height: ${(props) => {
     switch (props.modalHeight) {
       case "full":
-        return "10%";
+        return "100%";
       case "tall":
-        return "25%";
+        return "90%";
       case "half":
-        return "50%";
+        return "60%";
       case "small":
-        return "75%";
+        return "45%";
     }
   }};
   overflow-y: auto;
@@ -106,32 +123,7 @@ const Container = styled.div<{
 const Contents = styled.div<{ higher?: boolean; modalHeight: ModalHeight }>`
   position: relative;
   z-index: ${(props) => (props.higher ? "56" : "52")};
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: ${(props) => {
-    switch (props.modalHeight) {
-      case "full":
-        return "84px";
-      case "tall":
-        return "72px";
-      case "half":
-        return "56px";
-      case "small":
-        return "44px";
-    }
-  }};
-  margin-bottom: ${(props) => {
-    switch (props.modalHeight) {
-      case "full":
-        return "15%";
-      case "tall":
-        return "30%";
-      case "half":
-        return "55%";
-      case "small":
-        return "80%";
-    }
-  }};
+  margin: 150px 18px 0px 18px;
   width: auto;
   height: auto;
 `;
@@ -139,23 +131,25 @@ const Contents = styled.div<{ higher?: boolean; modalHeight: ModalHeight }>`
 const Header = styled.header<{ higher?: boolean }>`
   position: fixed;
   z-index: ${(props) => (props.higher ? "57" : "53")};
-  height: 72px;
   width: 100%;
+  height: 150px;
+  background-color: var(--white);
+  border-radius: 22px 22px 0px 0px;
+`;
+
+const TitleAndClose = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--white);
-  border-radius: 22px 22px 0px 0px;
+  margin: 12px 16px 12px 16px;
   h1,
   h2 {
-    margin-top: 12px;
-    margin-left: 16px;
+    margin-top: 16px;
     text-align: left;
   }
   button {
-    margin-right: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     svg {
       fill: var(--black);
       width: 16px;
@@ -163,4 +157,8 @@ const Header = styled.header<{ higher?: boolean }>`
       stroke-width: 3px;
     }
   }
+`;
+
+const Nav = styled.nav`
+  margin: 12px 16px 12px 16px;
 `;

@@ -1,14 +1,13 @@
-import { useHigherModalPage, useInspectPeer, useTestPeers } from "hooks";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useHigherModalPage, useInspectPeer, useTestPeers } from "hooks";
 import { ColorSet } from "types";
 import { abbrevPublicKey, ChainName } from "utils/account";
 import { AvatarImages, BgFgColors } from "utils/contants";
 import { Avatar, Button, gradientTextStyle, TextInput } from "../../atoms";
 import { copyToClipboard } from "utils/common";
-import { storageTestPeers as store } from "storage";
 
-export const MultiSimEditPeerSection = () => {
+export const MultiSimPeerInfoSection = () => {
   const { peer } = useInspectPeer();
   const { peers, setPeers } = useTestPeers();
   const { setOpen } = useHigherModalPage();
@@ -45,23 +44,21 @@ export const MultiSimEditPeerSection = () => {
 
   return (
     <Container>
-      <>
-        <Label>Chain info</Label>
-        <ChainInfo onClick={() => copyToClipboard(peer.address)}>
-          <strong>{ChainName(peer.blockchain)}</strong>
-          <br />
+      <Field>
+        <GradientLabel>{ChainName(peer.blockchain)}</GradientLabel>
+        <Address onClick={() => copyToClipboard(peer.address)}>
           {abbrevPublicKey(peer.address, 10)}
-        </ChainInfo>
-      </>
-      <>
+        </Address>
+      </Field>
+      <Field id="nickname">
         <Label>Nickname</Label>
         <TextInput
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
           maxLength={12}
         />
-      </>
-      <>
+      </Field>
+      <Field id="avatar">
         <Label>Avatar</Label>
         <AvatarList>
           {AvatarImages.map((src, idx) => (
@@ -75,8 +72,8 @@ export const MultiSimEditPeerSection = () => {
             />
           ))}
         </AvatarList>
-      </>
-      <>
+      </Field>
+      <Field id="color-theme">
         <Label>Color Theme</Label>
         <ColorSetList>
           {BgFgColors.map((cs) => (
@@ -88,7 +85,7 @@ export const MultiSimEditPeerSection = () => {
             />
           ))}
         </ColorSetList>
-      </>
+      </Field>
       <ButtonContainer>
         <ResetButton onClick={reset}>Reset</ResetButton>
         <SaveButton onClick={save}>Save</SaveButton>
@@ -99,18 +96,13 @@ export const MultiSimEditPeerSection = () => {
 
 const Container = styled.div``;
 
-const ChainInfo = styled.p`
+const Address = styled.p`
   cursor: pointer;
   font-size: 18px;
   font-weight: 400px;
   :hover {
     text-decoration: underline var(--black);
   }
-  strong {
-    font-weight: 500px;
-    ${gradientTextStyle}
-  }
-  line-height: 30px;
 `;
 
 const AvatarList = styled.div`
@@ -153,10 +145,18 @@ const ColorSetItem = styled.button<{ selected: boolean; colorSet: ColorSet }>`
 `;
 
 const Label = styled.h3`
-  margin: 32px 0px 12px 0px;
+  margin-bottom: 8px;
   && {
     font-size: 20px;
   }
+`;
+
+const GradientLabel = styled(Label)`
+  ${gradientTextStyle}
+`;
+
+const Field = styled.div`
+  margin-bottom: 32px;
 `;
 
 const SaveButton = styled(Button)``;
@@ -173,5 +173,5 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 12px;
-  height: 150px;
+  height: 120px;
 `;

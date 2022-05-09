@@ -1,4 +1,4 @@
-export * from "./useMultiSimPage";
+export * from "./src/useMultiSimPage";
 export * from "./src/usePopupMenu";
 export * from "./src/usePopupPage";
 export * from "./src/useSetupInfo";

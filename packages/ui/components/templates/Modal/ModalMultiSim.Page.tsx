@@ -8,18 +8,19 @@ import {
 } from "hooks";
 import { HigherModalPageContainer, ModalPageContainer } from "../../atoms";
 import {
-  MultiSimEditPeerSection,
-  MultiSimInspectPeerNav,
+  MultiSimPeerInfoSection,
   MultiSimPeerHistorySection,
   MultiSimSummarySection,
-  MultiSimTabNav,
   MultiSimTestPeersSection,
 } from "../../organisms/MultiSim";
 import { storageTestPeers as store } from "storage";
+import { TabsProps } from "../../molecules";
 
 export const ModalMultiSimPage = () => {
-  const { currentPage: multiSimPage } = useMultiSimPage();
-  const { currentPage: inspectPeerPage } = useInspectPeer();
+  const { currentPage: multiSimPage, setCurrentPage: setMultiSimPage } =
+    useMultiSimPage();
+  const { currentPage: inspectPeerPage, setCurrentPage: setInspectPeerPage } =
+    useInspectPeer();
   const { isOpen } = useHigherModalPage();
   const { getPeersByBlockchain, setPeers } = useTestPeers();
 
@@ -27,10 +28,60 @@ export const ModalMultiSimPage = () => {
     store.getTestPeers().then((peers) => setPeers(peers));
   }, []);
 
+  const multiSimTabsProps: TabsProps = {
+    currentPage: multiSimPage,
+    tabItems: [
+      {
+        text: "All",
+        page: "all",
+        onClick: () => {
+          setMultiSimPage("all");
+        },
+      },
+      {
+        text: "ETH",
+        page: "eth",
+        onClick: () => {
+          setMultiSimPage("eth");
+        },
+      },
+      {
+        text: "SOL",
+        page: "sol",
+        onClick: () => {
+          setMultiSimPage("sol");
+        },
+      },
+    ],
+  };
+
+  const inspectPeerTabsProps: TabsProps = {
+    currentPage: inspectPeerPage,
+    tabItems: [
+      {
+        text: "History",
+        page: "history",
+        onClick: () => {
+          setInspectPeerPage("history");
+        },
+      },
+      {
+        text: "Info",
+        page: "info",
+        onClick: () => {
+          setInspectPeerPage("info");
+        },
+      },
+    ],
+  };
+
   return (
     <>
-      <ModalPageContainer pageTitle="Multi-Sim">
-        <MultiSimTabNav />
+      <ModalPageContainer
+        modalHeight="tall"
+        pageTitle="Multi-Sim"
+        tabsProps={multiSimTabsProps}
+      >
         {multiSimPage === "all" && (
           <SummaryContainer>
             <MultiSimSummarySection
@@ -48,10 +99,13 @@ export const ModalMultiSimPage = () => {
         )}
       </ModalPageContainer>
       {isOpen && (
-        <PeerInfoContainer pageTitle="Peer Info">
-          <MultiSimInspectPeerNav />
+        <PeerInfoContainer
+          pageTitle="Peer Info"
+          tabsProps={inspectPeerTabsProps}
+          modalHeight="tall"
+        >
           {inspectPeerPage === "history" && <MultiSimPeerHistorySection />}
-          {inspectPeerPage === "info" && <MultiSimEditPeerSection />}
+          {inspectPeerPage === "info" && <MultiSimPeerInfoSection />}
         </PeerInfoContainer>
       )}
     </>

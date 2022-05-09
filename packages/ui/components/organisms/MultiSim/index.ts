@@ -1,4 +1,4 @@
-export * from "./MultiSimEditPeer.Section";
+export * from "./MultiSimPeerInfo.Section";
 export * from "./MultiSimSummary.Section";
 export * from "./MultiSimTestPeers.Section";
 export * from "./MultiSimPeerHistory.Section";

@@ -8,7 +8,7 @@ interface TabItem {
   onClick: () => void;
 }
 
-interface TabsProps {
+export interface TabsProps {
   tabItems: TabItem[];
   currentPage: string;
 }
