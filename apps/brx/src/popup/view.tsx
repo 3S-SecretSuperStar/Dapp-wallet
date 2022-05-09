@@ -6,6 +6,7 @@ import {
   PopupModalPage,
   PopupSetupPage,
   PopupWelcomePage,
+  PopupSettingsPage,
 } from "ui/components/templates";
 import { BottomNav } from "ui/components/molecules";
 import { storageUserInfo } from "storage";
@@ -40,6 +41,7 @@ export const PopupView = () => {
         {currentPage === "welcome" && <PopupWelcomePage />}
         {currentPage === "setup" && <PopupSetupPage />}
         {currentPage === "main" && <PopupMainPage />}
+        {currentPage === "settings" && <PopupSettingsPage />}
       </Main>
       {bottomNavDisplayingPages.includes(currentPage) && <BottomNav />}
       {modalPage.isOpen && <PopupModalPage />}

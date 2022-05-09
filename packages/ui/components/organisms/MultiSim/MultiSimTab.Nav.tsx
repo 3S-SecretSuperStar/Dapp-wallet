@@ -4,25 +4,29 @@ import { useMultiSimPage } from "hooks";
 import { Tabs } from "../../molecules";
 
 export const MultiSimTabNav = () => {
-  const { setCurrentPage } = useMultiSimPage();
+  const { currentPage, setCurrentPage } = useMultiSimPage();
   return (
     <Nav>
       <Tabs
+        currentPage={currentPage}
         tabItems={[
           {
             text: "All",
+            page: "all",
             onClick: () => {
               setCurrentPage("all");
             },
           },
           {
             text: "ETH",
+            page: "eth",
             onClick: () => {
               setCurrentPage("eth");
             },
           },
           {
             text: "SOL",
+            page: "sol",
             onClick: () => {
               setCurrentPage("sol");
             },

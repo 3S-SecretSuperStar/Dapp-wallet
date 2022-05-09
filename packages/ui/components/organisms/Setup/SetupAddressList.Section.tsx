@@ -86,7 +86,7 @@ const List = styled.div`
   gap: 12px;
 `;
 
-const ListItem = styled.h3<{ selected: boolean }>`
+const ListItem = styled.h4<{ selected: boolean }>`
   cursor: pointer;
   color: var(--black);
   text-align: center;

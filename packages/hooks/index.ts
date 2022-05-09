@@ -6,3 +6,5 @@ export * from "./src/useSetupPage";
 export * from "./src/useTestPeers";
 export * from "./src/useModalPage";
 export * from "./src/useInspectPeer";
+export * from "./src/useNetwork";
+export * from "./src/useSettingsPage";

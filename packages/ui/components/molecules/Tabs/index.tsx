@@ -4,21 +4,23 @@ import { Button } from "../../atoms";
 
 interface TabItem {
   text: string;
+  page: string;
   onClick: () => void;
 }
 
 interface TabsProps {
   tabItems: TabItem[];
+  currentPage: string;
 }
 
-export const Tabs: React.FC<TabsProps> = ({ tabItems }) => {
+export const Tabs: React.FC<TabsProps> = ({ tabItems, currentPage }) => {
   const [tabText, setTabText] = useState<string>(tabItems[0].text);
   return (
     <GridContainer>
       {tabItems.map((item) => (
         <TabItemButton
           key={item.text}
-          selected={tabText === item.text}
+          selected={currentPage === item.page}
           onClick={() => {
             item.onClick();
             setTabText(item.text);

@@ -1,3 +1,4 @@
+import { useHigherModalPage, useInspectPeer } from "hooks";
 import React from "react";
 import styled from "styled-components";
 import { TestWallet } from "types";
@@ -13,6 +14,14 @@ export const MultiSimSummarySection: React.FC<MultiSimSummarySectionProps> = ({
   title,
   peers,
 }) => {
+  const { setOpen } = useHigherModalPage();
+  const { setPeer } = useInspectPeer();
+
+  const inspectPeer = (peer: TestWallet) => {
+    setOpen(true);
+    setPeer(peer);
+  };
+
   return (
     <Container>
       <Header>
@@ -21,9 +30,11 @@ export const MultiSimSummarySection: React.FC<MultiSimSummarySectionProps> = ({
       </Header>
       <Avatars>
         {peers.map((peer) => (
-          <Avatar
+          <AvatarButton
+            key={abbrevPublicKey(peer.address)}
+            onClick={() => inspectPeer(peer)}
             src={peer.avatar}
-            alt={abbrevPublicKey(peer.publicKey)}
+            alt={abbrevPublicKey(peer.address)}
             fg={peer.colorSet.fg}
           />
         ))}
@@ -48,6 +59,10 @@ const Avatars = styled.div`
   column-gap: 8px;
   row-gap: 12px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+`;
+
+const AvatarButton = styled(Avatar)`
+  cursor: pointer;
 `;
 
 const Title = styled.h2``;

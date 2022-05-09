@@ -14,10 +14,11 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/solid";
 import { IconButton } from "../../atoms";
-import { useModalPage } from "hooks";
+import { useModalPage, usePopupPage } from "hooks";
 
 export const MainServiceListSection = () => {
   const { setModalOpen, setModalPage, modalPage } = useModalPage();
+  const { setCurrentPage } = usePopupPage();
   return (
     <Container>
       <h3>Service list</h3>
@@ -69,7 +70,11 @@ export const MainServiceListSection = () => {
           </CompassButton>
           <p>Compass</p>
         </IconButtonWithTitle>
-        <IconButtonWithTitle>
+        <IconButtonWithTitle
+          onClick={() => {
+            setCurrentPage("settings");
+          }}
+        >
           <SettingsButton>
             <IoSettingsSharp fill={"#7375aa"} />
           </SettingsButton>

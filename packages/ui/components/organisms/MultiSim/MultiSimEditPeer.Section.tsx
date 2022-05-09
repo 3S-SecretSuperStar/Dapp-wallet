@@ -1,71 +1,45 @@
-import {
-  useEthTestPeers,
-  useHigherModalPage,
-  useInspectPeer,
-  useSolTestPeers,
-} from "hooks";
+import { useHigherModalPage, useInspectPeer, useTestPeers } from "hooks";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ColorSet } from "types";
-import { abbrevPublicKey } from "utils/account";
+import { abbrevPublicKey, ChainName } from "utils/account";
 import { AvatarImages, BgFgColors } from "utils/contants";
 import { Avatar, Button, gradientTextStyle, TextInput } from "../../atoms";
 import { copyToClipboard } from "utils/common";
 import { storageTestPeers as store } from "storage";
 
 export const MultiSimEditPeerSection = () => {
-  const {
-    peer: { blockchain, peerInfo },
-  } = useInspectPeer();
-  const { setPeers: setEthPeers } = useEthTestPeers();
-  const { setPeers: setSolPeers } = useSolTestPeers();
+  const { peer } = useInspectPeer();
+  const { peers, setPeers } = useTestPeers();
   const { setOpen } = useHigherModalPage();
 
-  const [nickname, setNickname] = useState<string>(peerInfo.nickname);
-  const [colorSet, setColorSet] = useState<ColorSet>(peerInfo.colorSet);
-  const [avatar, setAvatar] = useState<string>(peerInfo.avatar);
+  const [nickname, setNickname] = useState<string>(peer.nickname);
+  const [colorSet, setColorSet] = useState<ColorSet>(peer.colorSet);
+  const [avatar, setAvatar] = useState<string>(peer.avatar);
 
   const reset = () => {
-    setNickname(peerInfo.nickname);
-    setColorSet(peerInfo.colorSet);
-    setAvatar(peerInfo.avatar);
+    setNickname(peer.nickname);
+    setColorSet(peer.colorSet);
+    setAvatar(peer.avatar);
   };
 
   const save = async () => {
-    if (blockchain === "eth") {
-      const peers = await store.getEthTestPeers();
-      const modifiedPeers = peers.map((ethPeer) => {
-        if (ethPeer.publicKey === peerInfo.publicKey) {
-          return {
-            publicKey: peerInfo.publicKey,
-            nickname,
-            colorSet,
-            avatar,
-          };
-        } else {
-          return ethPeer;
-        }
-      });
-      setEthPeers(modifiedPeers);
-      await store.setEthTestPeers(modifiedPeers);
-    } else if (blockchain === "sol") {
-      const peers = await store.getSolTestPeers();
-      const modifiedPeers = peers.map((solPeer) => {
-        if (solPeer.publicKey === peerInfo.publicKey) {
-          return {
-            publicKey: peerInfo.publicKey,
-            nickname,
-            colorSet,
-            avatar,
-          };
-        } else {
-          return solPeer;
-        }
-      });
-      setSolPeers(modifiedPeers);
-      await store.setSolTestPeers(modifiedPeers);
-    } else {
-    }
+    const editedPeers = peers.map((testPeer) => {
+      if (
+        testPeer.blockchain === peer.blockchain &&
+        testPeer.address === peer.address
+      ) {
+        return {
+          ...testPeer,
+          nickname,
+          colorSet,
+          avatar,
+        };
+      } else {
+        return testPeer;
+      }
+    });
+    setPeers(editedPeers);
     setOpen(false);
   };
 
@@ -73,10 +47,10 @@ export const MultiSimEditPeerSection = () => {
     <Container>
       <>
         <Label>Chain info</Label>
-        <ChainInfo onClick={() => copyToClipboard(peerInfo.publicKey)}>
-          <strong>{blockchain === "eth" ? "Ethereum" : "Solana"}</strong>
+        <ChainInfo onClick={() => copyToClipboard(peer.address)}>
+          <strong>{ChainName(peer.blockchain)}</strong>
           <br />
-          {abbrevPublicKey(peerInfo.publicKey, 10)}
+          {abbrevPublicKey(peer.address, 10)}
         </ChainInfo>
       </>
       <>

@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import {
-  useEthTestPeers,
   useHigherModalPage,
+  useInspectPeer,
   useMultiSimPage,
-  useSolTestPeers,
+  useTestPeers,
 } from "hooks";
 import { HigherModalPageContainer, ModalPageContainer } from "../../atoms";
 import {
   MultiSimEditPeerSection,
+  MultiSimInspectPeerNav,
+  MultiSimPeerHistorySection,
   MultiSimSummarySection,
   MultiSimTabNav,
   MultiSimTestPeersSection,
@@ -16,31 +18,40 @@ import {
 import { storageTestPeers as store } from "storage";
 
 export const ModalMultiSimPage = () => {
-  const { currentPage } = useMultiSimPage();
+  const { currentPage: multiSimPage } = useMultiSimPage();
+  const { currentPage: inspectPeerPage } = useInspectPeer();
   const { isOpen } = useHigherModalPage();
-  const { peers: ethPeers, setPeers: setEthPeers } = useEthTestPeers();
-  const { peers: solPeers, setPeers: setSolPeers } = useSolTestPeers();
+  const { getPeersByBlockchain, setPeers } = useTestPeers();
 
   useEffect(() => {
-    store.getEthTestPeers().then((peers) => setEthPeers(peers));
-    store.getSolTestPeers().then((peers) => setSolPeers(peers));
+    store.getTestPeers().then((peers) => setPeers(peers));
   }, []);
 
   return (
     <>
       <ModalPageContainer pageTitle="Multi-Sim">
         <MultiSimTabNav />
-        {currentPage !== "all" && <MultiSimTestPeersSection />}
-        {currentPage === "all" && (
+        {multiSimPage === "all" && (
           <SummaryContainer>
-            <MultiSimSummarySection title="Ethereum" peers={ethPeers} />
-            <MultiSimSummarySection title="Solana" peers={solPeers} />
+            <MultiSimSummarySection
+              title="Ethereum"
+              peers={getPeersByBlockchain("eth")}
+            />
+            <MultiSimSummarySection
+              title="Solana"
+              peers={getPeersByBlockchain("sol")}
+            />
           </SummaryContainer>
+        )}
+        {multiSimPage !== "all" && (
+          <MultiSimTestPeersSection blockchain={multiSimPage} />
         )}
       </ModalPageContainer>
       {isOpen && (
         <PeerInfoContainer pageTitle="Peer Info">
-          <MultiSimEditPeerSection />
+          <MultiSimInspectPeerNav />
+          {inspectPeerPage === "history" && <MultiSimPeerHistorySection />}
+          {inspectPeerPage === "info" && <MultiSimEditPeerSection />}
         </PeerInfoContainer>
       )}
     </>

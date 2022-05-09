@@ -1,6 +1,7 @@
+import { Blockchain } from "types";
 import create from "zustand";
 
-export type MultiSimPage = "all" | "eth" | "sol";
+export type MultiSimPage = "all" | Blockchain;
 
 interface UseMultiSimPageProps {
   currentPage: MultiSimPage;

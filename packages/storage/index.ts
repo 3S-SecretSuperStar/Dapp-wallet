@@ -1,4 +1,4 @@
-import { TestWallet, UserInfo } from "types";
+import { EthApiProviderKey, TestWallet, UserInfo } from "types";
 
 export type LocalStorageKeys = keyof LocalStorage;
 
@@ -7,8 +7,10 @@ export interface LocalStorage {
   userInfo?: UserInfo;
   ethTestPeers?: TestWallet[];
   solTestPeers?: TestWallet[];
+  ethApiProviderKey?: EthApiProviderKey;
 }
 
-export { storageFloatPosition } from "./src/floatPosition";
-export { storageUserInfo } from "./src/userInfo";
-export { storageTestPeers } from "./src/testClusters";
+export * from "./src/floatPosition";
+export * from "./src/userInfo";
+export * from "./src/testPeers";
+export * from "./src/ethApiProviderKey";

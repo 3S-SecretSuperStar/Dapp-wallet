@@ -39,9 +39,12 @@ export const createRandomWallet = async (
 ): Promise<TestWallet> => {
   switch (blockchain) {
     case "eth":
-      const { publicKey, privateKey } = ETH.Wallet.createRandom();
+      const { address } = ETH.Wallet.createRandom();
       return {
-        publicKey,
+        blockchain: "eth",
+        balance: 0,
+        transactions: [],
+        address,
         nickname: randomName(),
         avatar: randomAvatar(),
         colorSet: randomColorSet(),
@@ -49,7 +52,10 @@ export const createRandomWallet = async (
     case "sol":
       const keypair = SOL.Keypair.generate();
       return {
-        publicKey: keypair.publicKey.toBase58(),
+        blockchain: "sol",
+        balance: 0,
+        transactions: [],
+        address: keypair.publicKey.toBase58(),
         nickname: randomName(),
         avatar: randomAvatar(),
         colorSet: randomColorSet(),

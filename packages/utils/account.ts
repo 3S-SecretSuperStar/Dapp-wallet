@@ -3,9 +3,70 @@ import * as bs58 from "bs58";
 import * as SOL from "@solana/web3.js";
 import * as ETH from "ethers";
 import { derivePath } from "ed25519-hd-key";
-import { Blockchain, CryptoKeypair, CryptoWallet } from "types";
+import { Blockchain, CryptoKeypair, EthNetwork, SolNetwork } from "types";
 
-// TODO: Make a chain name function by chain type
+export const ethProvider = (network: EthNetwork, apiKey?: string) => {
+  const supportedNetwork = (network: EthNetwork) => {
+    switch (network) {
+      case "mainnet":
+        return "homestead";
+      default:
+        return network;
+    }
+  };
+  if (network === "localhost") {
+    return new ETH.providers.JsonRpcProvider();
+  } else {
+    return new ETH.providers.InfuraProvider(supportedNetwork(network), apiKey);
+  }
+};
+
+export const solProvider = (network: SolNetwork) => {
+  let networkUrl = null;
+  switch (network) {
+    case "localhost":
+      networkUrl = "http://127.0.0.1:8899";
+      break;
+    default:
+      networkUrl = SOL.clusterApiUrl(network);
+      break;
+  }
+  const connection = new SOL.Connection(networkUrl, "confirmed");
+  return connection;
+};
+
+export const getEthBalance = async (
+  address: string,
+  network: EthNetwork,
+  apiKey: string
+) => {
+  const provider = ethProvider(network, apiKey);
+  const balance = await provider.getBalance(address);
+  const formattedEther = ETH.utils.formatEther(balance);
+  return parseFloat(formattedEther);
+};
+
+export const getSolBalance = async (address: string, network: SolNetwork) => {
+  const connection = solProvider(network);
+  const pubKey = new SOL.PublicKey(address);
+  const balance = await connection.getBalance(pubKey, "confirmed");
+  return balance;
+};
+
+/**
+ * Returns chain name used in app accordingly to chain type.
+ *
+ * @param blockchain - A blockchain type.
+ * @returns an official chain name used in app.
+ */
+export const ChainName = (blockchain: Blockchain) => {
+  switch (blockchain) {
+    case "eth":
+      return "Ethereum";
+    case "sol":
+      return "Solana";
+  }
+};
 
 /**
  * Generates 12-words long mnemonic words.

@@ -1,29 +1,26 @@
-import { TestWallet } from "types";
+import { Blockchain, TestWallet } from "types";
 import create from "zustand";
 
 interface UseTestPeersProps {
   peers: TestWallet[];
+  getPeersByBlockchain: (blockchain: Blockchain) => TestWallet[];
   setPeers: (peers: TestWallet[]) => void;
   addPeer: (peer: TestWallet) => void;
   deletePeer: (peer: TestWallet) => void;
 }
 
-export const useEthTestPeers = create<UseTestPeersProps>((set) => ({
+export const useTestPeers = create<UseTestPeersProps>((set, get) => ({
   peers: [],
-  setPeers: (peers) => set((state) => ({ peers })),
+  getPeersByBlockchain: (blockchain) => {
+    const filteredPeers = get().peers.filter(
+      (peer) => peer.blockchain === blockchain
+    );
+    return filteredPeers;
+  },
+  setPeers: (peers) => set((_state) => ({ peers })),
   addPeer: (peer) => set((state) => ({ peers: [...state.peers, peer] })),
   deletePeer: (peer) =>
     set((state) => ({
-      peers: state.peers.filter((p) => p.publicKey !== peer.publicKey),
-    })),
-}));
-
-export const useSolTestPeers = create<UseTestPeersProps>((set) => ({
-  peers: [],
-  setPeers: (peers) => set((state) => ({ peers })),
-  addPeer: (peer) => set((state) => ({ peers: [...state.peers, peer] })),
-  deletePeer: (peer) =>
-    set((state) => ({
-      peers: state.peers.filter((p) => p.publicKey !== peer.publicKey),
+      peers: state.peers.filter((p) => p.address !== peer.address),
     })),
 }));

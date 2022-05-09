@@ -1,5 +1,15 @@
 export type Blockchain = "eth" | "sol";
 
+export type EthNetwork =
+  | "mainnet"
+  | "ropsten"
+  | "rinkeby"
+  | "goerli"
+  | "kovan"
+  | "localhost";
+
+export type SolNetwork = "mainnet-beta" | "testnet" | "devnet" | "localhost";
+
 export interface ColorSet {
   bg: string;
   fg: string;
@@ -25,9 +35,28 @@ export interface UserInfo {
   username: string;
 }
 
+export interface Transaction {
+  blockchain: Blockchain;
+  txId: string;
+  from: string;
+  to: string;
+  amount: number;
+  message: string;
+}
+
 export interface TestWallet {
-  publicKey: string;
+  blockchain: Blockchain;
+  address: string;
+  balance: number;
+  transactions: Transaction[];
   nickname: string;
   avatar: string;
   colorSet: ColorSet;
+}
+
+export type EthApiProvider = "infura" | "alchemy" | "etherscan";
+
+export interface EthApiProviderKey {
+  provider: EthApiProvider;
+  apiKey: string;
 }
